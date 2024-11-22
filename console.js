@@ -241,14 +241,71 @@ else if (nota < 6) {
     console.log("Suficiente");
 }
 else if (nota < 7) {
+    console.log("Bien");
+}
+else if (nota < 9) {
     console.log("Notable");
 }
-else {
+else if (nota <=10) {
     console.log('Sobresaliente');
-    if (nota ==10) {
+    if (nota == 10) {
         console.log('Matrícula de Honor');
     }
 }
-
+else {
+    console.log("La nota no es correcta")
+}
 }
 calificacion (10);
+
+// Rebajas
+// Tengo distintos valores de rebajas (50, 30, 20, 10) y quiero saber
+// Cual es el precio de un producto y la rebaja que tiene
+
+console.log("--------------");
+
+var precio = 100; // Valor del producto
+var oferta = 50; // Descuento del producto
+var descuento = 0;
+var precio_final = 0;
+
+if (descuento == 50){
+    descuento = precio * oferta / 100;
+    precio_final = precio - descuento;
+    console.log("El precio del producto es:", precio_final);
+    console.log("Etiqueta roja");
+}
+if (descuento == 30){
+    descuento = precio * oferta / 100;
+    precio_final = precio - descuento;
+    console.log("El precio del producto es:", precio_final);
+    console.log("Etiqueta naranja");
+}
+if (descuento == 20){
+    descuento = precio * oferta / 100;
+    precio_final = precio - descuento;
+    console.log("El precio del producto es:", precio_final);
+    console.log("Etiqueta amarilla");
+}
+if (descuento == 10){
+    descuento = precio * oferta / 100;
+    precio_final = precio - descuento;
+    console.log("El precio del producto es:", precio_final);
+    console.log("Etiqueta verde");
+}
+else {
+    console.log("El descuento no es válido");
+}
+
+// se podría usar el switch. Aquí va algo incompleto:
+switch (oferta) {
+    case 50:
+        descuento = precio * oferta / 100;
+        precio_final = precio - descuento;
+        console.log("El precio del producto es:", precio_final);
+        console.log("Etiqueta roja");
+}
+console.log("--------------");
+function descuento(precio,desc){
+    console.log("Etiqueta Roja "+ (precio-(precio * desc / 100)))
+}
