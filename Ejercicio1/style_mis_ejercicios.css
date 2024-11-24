@@ -5,8 +5,8 @@
     font-style: normal;
 }
 
-body{   /* Lo visible*/
-    margin:0;       /*margen*/
+body{ 
+    margin:0;
     background-color: #444444;
     display:grid;
     grid-template-columns: 1fr; /*una sola columna*/
@@ -17,20 +17,59 @@ body{   /* Lo visible*/
         "footer";
 }
 header{  /*Encabezado*/
-    background-color: #ffc117;     /*color de fondo*/
+    background-color: #ffaa17;/*#ffc117;     /*color de fondo*/
     grid-area:header;           /*nombro el área para que en grid-template-areas me tome el header como un área*/
     text-align: center;         /*alineación de los elementos*/
     color: white;           /*color de la letra*/
-    font-family: Verdana, Geneva, Tahoma, sans-serif;  /*fuente de la letra*/
     font-size: 1.5em;       /*tamaño de la letra*/
-    padding: 2em;       /*espacio entre el contenido y el contenedor. Ej. entre una imagen o un texto y el borde de la caja donde está*/
     display: grid; 
     grid-template-columns: 1fr 2fr;
     justify-items: center;      /*centramos el elemento*/
-
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+    /* Marco de puntos */
+    border: 10px dotted #444444; /* Puntos de borde de color gris oscuro */
+    padding: 0.8em; /* Espacio entre el contenido y el borde */
 }
-h1{   /*Título principal, no se puede repetir*/
+
+header img {
+    width: 4em;
+    height: auto;
+    margin-top: 0.7em;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #fe8c42;
+  }
+  
+  .nav {
+    grid-area: nav;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-weight: bold; /*Texto en negrita*/
+  }
+  
+  .nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav a {
+    color: white;
+    text-decoration: none;
+  }
+
+h1{ 
     justify-self: left;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-family: 'electronic';
 }
 
 h2 {
@@ -39,25 +78,32 @@ h2 {
 main{   /*Contenedor de la información importante*/
     grid-area:main;
     display:grid;
-    grid-template-columns: 1fr 1fr;
+    /*grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
         "calcu rayas"
-        "poligonos juego";
+        "poligonos juego";*/
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 5em;           /*espacio entre contenedores cuando usamos display:grid, para que no se queden pegados*/
     margin: 2em;
+    margin-top: 2.5em
 }
 section{
     text-align: center;
     border-radius: 30px;    /*redondea los bordes*/
     border: solid white 8px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+    transition: filter 0.3s, transform 0.3s; /* Transiciones suaves del efecto del ratón*/
 }
 section img {
     width: 20em;
     height: auto;
 }
+section:hover{
+    transform: scale(1.10); /*Aumenta un poco el tamaño*/
+}
 .calcu{
-    grid-area:calcu;  
+    /*grid-area:calcu;*/  
     background-color: #feda77;
     color:rgb(0, 0, 0)
 }
@@ -70,16 +116,8 @@ a:hover{        /*el :hover hace que cuando pase el ratón por encima de ese ele
     text-decoration: underline;  /*subraya el texto al pasar el ratón*/
 }
 
-button{
-    background-color: orangered;
-    color: white;
-    padding: 20px;
-    border-radius: 15px;
-    font-size: 16px;
-    cursor: pointer; /*el cursor será una mano al pasar por encima*/
-}
 .raya{
-    grid-area:rayas;
+    /*grid-area:rayas;*/
     background-color: rgb(155, 205, 206);
 }
 .raya img{
@@ -87,7 +125,7 @@ button{
     height: auto;
 }
 .poligonos{
-    grid-area:poligonos;
+    /*grid-area:poligonos;*/
     background-color: rgb(201, 131, 122);
 }
 .poligonos img{
@@ -95,7 +133,7 @@ button{
     height: auto;
 }
 .juego{
-    grid-area:juego;
+    /*grid-area:juego;*/
     background-color: rgb(161, 206, 155);
 }
 .juego img{
@@ -107,10 +145,21 @@ footer{
     color: white;
     grid-area:footer;
     text-align: center;
+    box-shadow: 2px -5px 10px rgba(0, 0, 0, 0.5);
+    margin-top: 1.5em;
 
 }
 /*vista de movil*/
-@media(max-width: 700px) {
+@media(max-width: 767px) and (orientation:portrait){
+    header {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        padding: 8px;
+    }
+    h1 {
+        justify-self: center;
+        font-size: 2em;
+    }
    main{
     grid-template-columns: 1fr;
 
@@ -127,9 +176,25 @@ footer{
    }
 }
 
+@media(max-width: 1022px) and (orientation:landscape){
+
+    header {
+        padding: 1px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    header img {
+        width: 3.5em;
+        height: auto;
+        margin-top: 0.6em;
+    }
+}
+
 /*vista tablet*/
-@media (min-width: 701px) and (max-width: 1119px){
-    main{
+@media (min-width: 768px) and (max-width: 1024px) and 
+(orientation:portrait){
+    /*main{
         grid-template-columns: 1fr;
     
         grid-template-areas:
@@ -139,8 +204,15 @@ footer{
             "juego";
         grid-template-rows: 1fr 1fr 1fr 1fr;
     
-       }
+       }*/
+    header{
+        padding: 0.8em;
+    }
 }
+@media (orientation:landscape) and (max-width: 1280px){
+
+}
+
 /*vista para lectores de pantalla*/
 @media speech {
 
