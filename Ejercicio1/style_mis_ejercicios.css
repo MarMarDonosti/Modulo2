@@ -227,7 +227,7 @@ footer{
     }
 }
 
-/***NOTA***/
+/*****NOTA*****/
 
 .main_nota {
     display:flex;
@@ -277,10 +277,33 @@ button:hover {
 }
 
 /**REBAJAS**/
+
+.main_rebajas {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .seccion_rebajas{
-    background-color: rgb(252, 146, 69)
+    background-color: rgb(249, 137, 57);
+    width: 100vh;
+    height: 65Vh;
+    
 }
 
 .seccion_rebajas button {
     background-color: rgb(15, 97, 135);
+}
+
+.seccion_rebajas button:hover {
+    background-color: rgb(9, 129, 185);
+}
+
+select {
+    width: 30%; /* Ancho completo */
+    padding: 10px; /* Espaciado interno */
+    margin-bottom: 2em; /* Espaciado inferior */
+    margin-top: 1em;
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 15px; /* Bordes redondeados */
 }
