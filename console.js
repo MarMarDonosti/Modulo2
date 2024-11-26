@@ -421,3 +421,19 @@ while (i < num){
     i++
 }    
 console.log(`Es primo ${num} ? ${primo}`)
+
+
+console.log("--------------");
+
+// inicialización de la variable; la condición; el incremento
+for (let day = 0; day < 4; day = day +1)
+    console.log('streaming')
+
+console.log("--------------");
+personasEnBici = personasEnBici + 1
+/* asldfjlasdkjfñlsadjf
+sdflkjalskdf jhgkuygkugy
+así se ponen comentarios largos*/ 
+
+console.log("--------------");
+400
