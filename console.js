@@ -78,7 +78,7 @@ var suma, resta, mul, div, mod;
 suma = num1 + num2;
 console.log("La suma de los números es: " + suma);
 
-console.log("La resta de los números es: " , (num1 - num2))
+console.log("La resta de los números es: ", (num1 - num2))
 
 console.log("-------");
 var radio = 5
@@ -92,18 +92,18 @@ console.log(perimetro.toFixed(2))
 
 console.log("-------");
 var edad = 5
-if(edad>17) {
-    console.log ("MAYOR")
+if (edad > 17) {
+    console.log("MAYOR")
 }
-if(edad<18) {
-    console.log ("MENOR")
+if (edad < 18) {
+    console.log("MENOR")
 }
 
 console.log("-------");
 
 var perro = 0
 var gato = 1
-if(perro || gato) {
+if (perro || gato) {
     console.log("tengo mascota")
 }
 
@@ -111,13 +111,13 @@ console.log("-------");
 
 var edad = 19
 var mide = 160
-if(edad>18 && mide>150) {
+if (edad > 18 && mide > 150) {
     console.log("entras")
 }
 
 console.log("-------");
 // Funcion perimetro del circulo
-function perimetro_circulo(radio){
+function perimetro_circulo(radio) {
     var perimetro = 0
     const PI = 3.14
     perimetro = 2 * PI * radio
@@ -132,14 +132,14 @@ console.log(prueba)
 
 
 // Funcion para que me escriba "hola"
-function hola(){
+function hola() {
     console.log("HOLA")
 }
 hola()
 
 // Función que calcula si una persona es mayor de edad
 function mayor_edad(edad) {
-    if (edad >= 18){
+    if (edad >= 18) {
         return true
     }
 }
@@ -151,21 +151,21 @@ var mayor = false
 age = 26
 nombre = "Pepe"
 mayor = mayor_edad(age)
-if (mayor){
+if (mayor) {
     console.log(`${nombre} ${mayor}`)
 }
 
 // Sección según la medida (variable anidada)
 
 var estatura = 98 // En cm
-if (estatura <=98) {
+if (estatura <= 98) {
     console.log("Seccion baby")
 }
-else if (estatura < 150){
+else if (estatura < 150) {
     console.log("Seccion infantil")
 }
 
-else if (estatura <170){
+else if (estatura < 170) {
     console.log("Seccion adolescente")
 }
 
@@ -177,23 +177,23 @@ else {
 
 var temperatura = 18
 var compania = false
-function ocio_anidado(temperatura, compania){
+function ocio_anidado(temperatura, compania) {
 
-if (temperatura > 20) {
-    console.log("Vestir ropa deportiva")
-}
-else {
-    console.log("Vestir informalmente")
-
-    if (compania) {
-        console.log("Usar el carro")
+    if (temperatura > 20) {
+        console.log("Vestir ropa deportiva")
     }
     else {
-        console.log("Usar transporte público")
+        console.log("Vestir informalmente")
+
+        if (compania) {
+            console.log("Usar el carro")
+        }
+        else {
+            console.log("Usar transporte público")
+        }
     }
 }
-}
-ocio_anidado(20,false)
+ocio_anidado(20, false)
 
 //* De otro algoritmo
 
@@ -202,7 +202,7 @@ var compania = true
 if ((temperatura > 20) && (compania)) {
     console.log("Vestir ropa deportiva y usar el carro")
 }
-if ((temperatura  > 20) && (compania == false)) {
+if ((temperatura > 20) && (compania == false)) {
     console.log("Vestir ropa deportiva y usar transporte publico")
 }
 if ((temperatura < 20) && (compania)) {
@@ -215,48 +215,48 @@ if ((temperatura > 20) && (compania == false)) {
 // Quiero hacer una actividad y tengo que decidir donde y como voy vestida
 // IF anidado
 
-function ocio_independiente (temperatura, compania){
-if (temperatura > 20) {
-    console.log("Vestir ropa deportiva y voy al parque")
-}
-else {
-    console.log("Visto informal y voy al cine")
-}
-if (compania){
-    console.log("Voy en coche")
-}
-else {
-    console.log("Voy en bus")
-}
-}
-ocio_independiente (12, false)
-
-console.log("--------------");
-function calificacion (nota){
-
-if (nota < 5) {
-    console.log("Suspendido");
-}
-else if (nota < 6) {
-    console.log("Suficiente");
-}
-else if (nota < 7) {
-    console.log("Bien");
-}
-else if (nota < 9) {
-    console.log("Notable");
-}
-else if (nota <=10) {
-    console.log('Sobresaliente');
-    if (nota == 10) {
-        console.log('Matrícula de Honor');
+function ocio_independiente(temperatura, compania) {
+    if (temperatura > 20) {
+        console.log("Vestir ropa deportiva y voy al parque")
+    }
+    else {
+        console.log("Visto informal y voy al cine")
+    }
+    if (compania) {
+        console.log("Voy en coche")
+    }
+    else {
+        console.log("Voy en bus")
     }
 }
-else {
-    console.log("La nota no es correcta")
+ocio_independiente(12, false)
+
+console.log("--------------");
+function calificacion(nota) {
+
+    if (nota < 5) {
+        console.log("Suspendido");
+    }
+    else if (nota < 6) {
+        console.log("Suficiente");
+    }
+    else if (nota < 7) {
+        console.log("Bien");
+    }
+    else if (nota < 9) {
+        console.log("Notable");
+    }
+    else if (nota <= 10) {
+        console.log('Sobresaliente');
+        if (nota == 10) {
+            console.log('Matrícula de Honor');
+        }
+    }
+    else {
+        console.log("La nota no es correcta")
+    }
 }
-}
-calificacion (10);
+calificacion(10);
 
 // Rebajas
 // Tengo distintos valores de rebajas (50, 30, 20, 10) y quiero saber
@@ -269,25 +269,25 @@ var oferta = 50; // Descuento del producto
 var descuento = 0;
 var precio_final = 0;
 
-if (descuento == 50){
+if (descuento == 50) {
     descuento = precio * oferta / 100;
     precio_final = precio - descuento;
     console.log("El precio del producto es:", precio_final);
     console.log("Etiqueta roja");
 }
-if (descuento == 30){
+if (descuento == 30) {
     descuento = precio * oferta / 100;
     precio_final = precio - descuento;
     console.log("El precio del producto es:", precio_final);
     console.log("Etiqueta naranja");
 }
-if (descuento == 20){
+if (descuento == 20) {
     descuento = precio * oferta / 100;
     precio_final = precio - descuento;
     console.log("El precio del producto es:", precio_final);
     console.log("Etiqueta amarilla");
 }
-if (descuento == 10){
+if (descuento == 10) {
     descuento = precio * oferta / 100;
     precio_final = precio - descuento;
     console.log("El precio del producto es:", precio_final);
@@ -306,6 +306,118 @@ switch (oferta) {
         console.log("Etiqueta roja");
 }
 console.log("--------------");
-function descuento(precio,desc){
-    console.log("Etiqueta Roja "+ (precio-(precio * desc / 100)))
+function descuento(precio, desc) {
+    console.log("Etiqueta Roja " + (precio - (precio * desc / 100)))
 }
+console.log("--------------");
+
+var i = 1;
+
+while (i <= 10) {
+    var valor = 3 * i; // también puedo poner let en vez de var. Sólo afectará a lo que está entre corchetes
+    i = i + 1;  // como hemos puesto que i=1, tengo que poner este cálculo detrás del primer cálculo
+    // si no me empezaría por el dos
+
+    console.log(valor);
+}
+
+console.log("--------------");
+// para que cuente hasta 5
+var i = 1;
+while (i <= 5) {
+    console.log(i);
+    i++;
+}
+
+console.log("--------------");
+//para que me de números pares
+var i = 1
+while (i <= 15) {
+    if (i % 2 == 0) {
+        console.log(i);
+    }
+    i++;
+}
+
+console.log("--------------");
+//quiero los múltiplos 3
+var i = 1;
+while (i <= 20) {
+    if (i % 3 == 0) {
+        console.log(i)
+    }
+    i++
+}
+
+console.log("--------------");
+//quiero los múltiplos 3 y 2
+var i = 1;
+while (i <= 20) {
+    if (i % 3 == 0 && i % 2 == 0) {
+        console.log(i)
+    }
+    i++
+}
+
+console.log("--------------");
+//quiero los múltiplos 3 o 2
+var i = 1;
+while (i <= 20) {
+    if ((i % 3 == 0) || (i % 2 == 0 && i)) {
+        console.log(i)
+    }
+    i++
+}
+
+console.log("--------------");
+//quiero los múltiplos 3 o (2 y 5)
+var i = 1;
+while (i <= 20) {
+    if ((i % 3 == 0) || (i % 2 == 0 && i % 5 == 0)) {
+        console.log(i)
+    }
+    i++
+}
+
+console.log("--------------");
+//quiero los múltiplos (3 o 2) y 5
+var i = 1;
+while (i <= 20) {
+    if ((i % 3 == 0 || i % 2 == 0) && (i % 5 == 0)) {
+        console.log(i)
+    }
+    i++
+}
+console.log("--------------");
+//suma de todos los número mútliplos de 3 del 1 al 20
+var i = 1;
+var suma = 0;
+while (i <= 20) {
+    if (i % 3 == 0) {
+        suma = suma + i;   // también se podría poner suma += i
+    }
+    i++
+}
+console.log(suma)
+
+console.log("--------------");
+//sumar los número del 1 al 10
+var i = 1;
+var suma = 0;
+while (i <= 10) {
+    suma = suma + i;   // también se podría poner suma += i
+    i++
+}
+console.log(suma)
+
+console.log("--------------");
+//Saber si un número es primo
+var num = 12;   //valor de prueba para comprobar si funciona
+var primo = true;
+while (i < num){    
+    if (num % i == 0) {
+        primo = false
+    }
+    i++
+}    
+console.log(`Es primo ${num} ? ${primo}`)

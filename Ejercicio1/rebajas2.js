@@ -1,7 +1,7 @@
-document.getElementById("calcular").addEventListener("click", function() {
+document.getElementById("calcular").addEventListener("click", function () {
     // Obtener el precio introducido
     var precio = parseFloat(document.getElementById("precio").value);
-    
+
     // Verificar si el precio es un número válido
     if (isNaN(precio) || precio <= 0) {
         alert("Por favor, introduce un precio válido.");
