@@ -414,26 +414,106 @@ console.log("--------------");
 //Saber si un número es primo
 var num = 12;   //valor de prueba para comprobar si funciona
 var primo = true;
-while (i < num){    
+while (i < num) {
     if (num % i == 0) {
         primo = false
     }
     i++
-}    
+}
 console.log(`Es primo ${num} ? ${primo}`)
 
 
 console.log("--------------");
 
 // inicialización de la variable; la condición; el incremento
-for (let day = 0; day < 4; day = day +1)
+for (let day = 0; day < 4; day = day + 1){
     console.log('streaming')
-
+}
 console.log("--------------");
-personasEnBici = personasEnBici + 1
+//personasEnBici = personasEnBici + 1
 /* asldfjlasdkjfñlsadjf
 sdflkjalskdf jhgkuygkugy
-así se ponen comentarios largos*/ 
+así se ponen comentarios largos*/
 
 console.log("--------------");
 400
+
+console.log("--------------");
+//suma de los números del 1 al 10 con for
+
+var suma = 0;
+for (i = 1; i <= 10; i++) {
+    suma += i
+}
+console.log(suma)
+
+//escribir del 1 al 20 los múltiplos de 3
+
+
+
+console.log("--------------");
+//quiero los múltiplos 3
+
+for (i = 1; i<=20; i++) {
+    if (i % 3 == 0)
+        console.log(i)
+}
+
+console.log("--------------");
+//Todos los números pares del 1 al 15
+
+for (i = 1; i<=15; i++) {
+    if (i % 2 == 0) {
+        console.log(i);
+    }
+}
+console.log("--------------");
+//Números pares del 10 al 30
+
+for (i = 10; i<=30; i++) {
+    if (i % 2 == 0) {
+        console.log(i);
+    }
+}
+console.log("--------------");
+// Saber si un número es primo con for
+var num = 4;   //valor de prueba para comprobar si funciona
+var i = 2    // se le da nuevo valor a i porque ya la hemos utilizado antes y tendrá el que se le ha dado
+var primo = true;
+while (i < num) {
+    if (num % i == 0) {
+        primo = false;
+        break;
+    }
+    i++
+}
+console.log(`Es primo ${num} ? ${primo}`)
+
+
+console.log("--------------");
+var primo = true;
+for (i = 2; i < num; i++) {
+    if (num % i == 0) {
+        primo = false;
+        break;
+    }
+}
+console.log(`Es primo ${num} ? ${primo}`)
+
+console.log("--------------");
+// Función Primo
+function es_primo(num){
+    let primo = true;
+    if (num == 1) {       // en caso de que el número sea 1
+        return primo;
+    }
+    for (i = 2; i < num; i++) {
+        if (num % i == 0) {
+            primo = false;
+            return primo; // se pone return en vez de break
+        }
+    }
+    return primo;
+}
+
+console.log(es_primo(21));  //Para comprobar si 21 es primo

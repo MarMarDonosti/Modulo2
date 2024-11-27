@@ -307,3 +307,11 @@ select {
     border: 1px solid #ccc; /* Borde */
     border-radius: 15px; /* Bordes redondeados */
 }
+
+.azul {
+    background-color: aqua;
+}
+
+.rojo {     /*ESTA CLASE NO ESTÁ ASIGNADA EN EL HTML, ESTÁ ASIGNADA EN JS*/
+    background-color: red;
+}
