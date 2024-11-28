@@ -308,10 +308,28 @@ select {
     border-radius: 15px; /* Bordes redondeados */
 }
 
+.verde, .naranja, .azul, .rojo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.verde {
+    background-color: green;
+}
+
+.naranja {
+    background-color: orangered;
+}
+
 .azul {
     background-color: aqua;
 }
 
 .rojo {     /*ESTA CLASE NO ESTÁ ASIGNADA EN EL HTML, ESTÁ ASIGNADA EN JS*/
     background-color: red;
+}
+
+/***PERFECTO***/
+
+.p_apareceDesdeJs {
+    font-family: 'Roboto', sans-serif;
 }
