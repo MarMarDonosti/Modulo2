@@ -22,7 +22,7 @@ function es_perfecto(){
         // Cambiar el estilo del texto de la nueva p crada
         //nuevo.style.fontFamily = "Arial, sans-serif"; // Usa el nombre de la fuente que desees
         nuevo.style.fontSize = "20px"; // Tamaño de la fuente
-        nuevo.style.color = "#350a44"; // Color de la letra
+        nuevo.style.color = "orangered"; // Color de la letra
         // Otra forma de dar estilo es agregando una clase CSS
         nuevo.classList.add("p_apareceDesdeJs"); // las modificaciones se harán en CSS con el class .miClaseDeEstilo
 

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8" /> 
+    <title>Experimentos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="experimentos.css"> 
+
+</head>
+<body>
+    <header>
+        <img src="icons8-joystick-96.png" alt="">
+        <h1>Arcade gameing</h1>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </header>
+    <main class="main_perfecto">        
+        <section id="experimento1">
+            <h2 class="h2nota">· Formulario ·</h2>
+            <form class="contenedor_form">
+                <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required>
+                <br><br>
+                <input type="email" id="email" name="email" placeholder="tu_email@correo.com" required>
+                <br><br>
+                <input type="checkbox" id="acuerdo" name="acuerdo" required>
+                <label for="acuerdo">Acepto los términos y condiciones</label>
+                <br><br>
+                <input type="submit" value="Enviar" id="enviar">
+                <br><br>
+            </form>
+        </section>
+        <section id="experimento2">
+            <h2 class="h2nota">· Tu realidad ·</h2>
+            <input type="number" id="edad" name="edad" placeholder="Introduce tu edad" required>
+            <br><br>
+            <input type="submit" value="Cuéntame!" id="cuentame">
+            <br><br>
+
+        </section>
+    </main>
+    <footer>
+        <p>
+            © Propiedad de Mrs Burns. Todos los derechos reservados
+        </p>
+    </footer> 
+</body>
+    <script src="experimentos.js"></script>
+</html>

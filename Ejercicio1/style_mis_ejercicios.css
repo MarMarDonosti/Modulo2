@@ -146,6 +146,15 @@ a:hover{        /*el :hover hace que cuando pase el ratón por encima de ese ele
 .rebajas {
     background-color: rgb(209, 138, 88);
 }
+.perfecto {
+    background-color: rgb(238, 204, 151);
+}
+.datos {
+    background-color: rgb(143, 160, 197);
+}
+.experimentos {
+    background-color: pink;
+}
 footer{
     background-color: #444444;
     color: white;
@@ -330,6 +339,15 @@ select {
 
 /***PERFECTO***/
 
+#perfecto {
+    background-color: rgb(238, 204, 151);
+}
+#perfecto button {
+    background-color: olivedrab;
+}
+#perfecto button:hover {
+    background-color: rgb(48, 64, 16);
+}
 .p_apareceDesdeJs {
     font-family: 'Roboto', sans-serif;
 }

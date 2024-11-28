@@ -1,0 +1,231 @@
+@font-face {
+    font-family: 'electronic';
+    src: url('electronic.TTF') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    background-color: #444444;
+    display: grid;
+    grid-template-columns: 1fr;
+    /*una sola columna*/
+    grid-template-rows: auto 1fr auto;
+    /*3 filas, auto para que se ajuste al tamaño que tiene y 1fr será el espacio restante*/
+    grid-template-areas:
+        /*1 columna y 3 filas que serán:*/
+        "header"
+        "main"
+        "footer";
+}
+
+header {
+    /*Encabezado*/
+    background-color: #ffaa17;
+    /*#ffc117;     /*color de fondo*/
+    grid-area: header;
+    /*nombro el área para que en grid-template-areas me tome el header como un área*/
+    text-align: center;
+    /*alineación de los elementos*/
+    color: white;
+    /*color de la letra*/
+    font-size: 1.5em;
+    /*tamaño de la letra*/
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    justify-items: center;
+    /*centramos el elemento*/
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+    /* Marco de puntos */
+    border: 10px dotted #444444;
+    /* Puntos de borde de color gris oscuro */
+    padding: 0.8em;
+    /* Espacio entre el contenido y el borde */
+}
+
+header img {
+    width: 4em;
+    height: auto;
+    margin-top: 0.7em;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #fe8c42;
+}
+
+.nav {
+    grid-area: nav;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    /*Texto en negrita*/
+}
+
+.nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+}
+
+h1 {
+    justify-self: left;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-family: 'electronic';
+}
+
+h2 {
+    font-family: "electronic";
+}
+
+main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 5em;
+    /*espacio entre contenedores cuando usamos display:grid, para que no se queden pegados*/
+    margin: 2em;
+    margin-top: 2.5em;
+}
+
+section {
+    text-align: center;
+    border-radius: 30px;
+    /*redondea los bordes*/
+    border: solid white 8px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+    padding: 1em;
+}
+#experimento1 {
+    background-color: rgb(106, 106, 210);
+}
+#experimento2 {
+    background-color: rgb(210, 208, 106);
+}
+
+footer {
+    background-color: #444444;
+    color: white;
+    grid-area: footer;
+    text-align: center;
+    box-shadow: 2px -5px 10px rgba(0, 0, 0, 0.5);
+    margin-top: 1.5em;
+
+}
+
+.contenedor_form input[type="text"], input[type="email"]{
+
+    width: 50%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+
+}
+
+input[type="number"] {
+
+    width: 25%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+
+}
+
+input[type="submit"] {
+    padding: 6px;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 8px;
+    background-color: #fe8c42;
+}
+
+/*vista de movil*/
+@media(max-width: 767px) and (orientation:portrait) {
+    header {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        padding: 8px;
+    }
+
+    h1 {
+        justify-self: center;
+        font-size: 2em;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+
+        grid-template-areas:
+            "calcu"
+            "rayas"
+            "poligonos"
+            "juego";
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+
+    }
+
+    header {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 1022px) and (orientation:landscape) {
+
+    header {
+        padding: 1px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    header img {
+        width: 3.5em;
+        height: auto;
+        margin-top: 0.6em;
+    }
+}
+
+/*vista tablet*/
+@media (min-width: 768px) and (max-width: 1024px) and (orientation:portrait) {
+
+    /*main{
+        grid-template-columns: 1fr;
+    
+        grid-template-areas:
+            "calcu"
+            "rayas"
+            "poligonos"
+            "juego";
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    
+       }*/
+    header {
+        padding: 0.8em;
+        font-size: 1em;
+    }
+}
+
+@media (orientation:landscape) and (max-width: 1280px) {}
+
+/*vista para lectores de pantalla*/
+@media speech {
+
+    img {
+        display: none;
+    }
+}
