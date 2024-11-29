@@ -517,3 +517,112 @@ function es_primo(num){
 }
 
 console.log(es_primo(21));  //Para comprobar si 21 es primo
+
+console.log("--------------");
+console.log("ARRAY")
+
+var fruta = ["manzana","pera","fresa"]
+
+//¿Qué tamaño tiene?
+var size = fruta.length;
+console.log(size)
+
+//Añadir un elemento
+fruta.push ("uva");
+size = fruta.length;
+console.log(size)
+
+//Obtener el elemento "fresa"
+
+var merienda = fruta [2]    // porque empezando a contar desde 0, es la que está en 2º lugar
+console.log(merienda)       // también podría pedirse sin nombrar merienda
+                            // console.log(fruta[2])
+//Quitar "manzana"
+
+fruta.shift ()
+
+console.log(fruta)
+
+//Quitar "uva"
+fruta.pop ()
+
+console.log(fruta)
+
+//Para que me de un listado de los elementos
+fruta.forEach(elemento => {
+    console.log (`${elemento} tiene ${elemento.length} caracteres`);
+})
+
+//Eliminar un valor en concreto de un array crando otro array
+var resultado = fruta.filter(fruit => fruit != "fresa"); //fruit es una variable temporal que sólo usaré aquí
+console.log(resultado);
+
+//Eliminar un valor en concreto sabiendo la posición
+delete(fruta[2]);
+console.log(fruta) //borra el contenido pero sigue manteniendo el espacio reservado en el array
+
+//Eliminar sabiendo la posición
+fruta.splice(2,1);
+console.log(fruta);
+
+// Array con los meses del año y quiero aliminar febrero, pero no sé su posición
+var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]; // Pondríamos todos los meses
+var cont = 0;
+var indice = meses.length;
+meses.forEach(element => {
+    if (element == "Febrero") {
+        indice = cont;
+    }
+    cont ++; // pongo el contador detrás porque el primero que mira es el 1
+});
+meses.splice(cont,1);
+console.log(meses);
+
+
+//Otra forma más sencilla
+
+var mi_indice = meses.indexOf("Marzo");
+console.log(mi_indice);
+meses.splice(mi_indice,2);  //Desde la posición inicial, el número de posiciones (elementos) que elimina
+console.log(meses)
+
+//Ordenar los meses alfabéticamente
+let ordenar = meses.sort();
+console.log(ordenar)
+
+//Calcular la tabla de multiplicar de un número y que utilice un array
+    //Crear un array con los números del 1 al 10
+    //En una variable voy a tener el número de la tabla (Tabla del 3)
+var numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        // también podría ponerse:
+            var min = 1;
+            var max = 20;
+            var num_for = [];
+            for (i=min; i<=max; i++) {
+                num_for.push(i);
+                }
+        
+console.log(numeros);
+console.log(num_for);
+var tabla = 3;
+numeros.forEach(element => {
+    console.log(`${tabla} x ${element} = ${tabla*element}`)
+});
+
+// Saber el número de letras de cada día y devolver el nombre del día al reves (reverse)
+
+const dias = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"];
+  //Para poner todos los días en mayúscula
+  var mayusculas = []
+  var minusculas = []
+
+dias.forEach((dias)=> {
+    const numeroLetras = dias.length;
+    const diaAlReves = dias.split('').reverse().join('');
+    console.log(`El ${dias} tiene ${numeroLetras} letras y al revés es ${diaAlReves}`);
+    mayusculas.push(element.toUpperCase()); //Pasar a mayusculas
+    minusculas.push(element.toLowerCase()); //Pasar a minúsculas
+  });
+
+console.log(mayusculas);
+console.log(minusculas);
