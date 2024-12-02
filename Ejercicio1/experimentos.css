@@ -114,6 +114,9 @@ section {
 #experimento2 {
     background-color: rgb(210, 208, 106);
 }
+#experimento3 {
+    background-color: rgb(210, 106, 118);;
+}
 
 footer {
     background-color: #444444;
@@ -137,7 +140,7 @@ footer {
 
 input[type="number"] {
 
-    width: 25%;
+    width: 35%;
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
