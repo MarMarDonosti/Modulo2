@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Tarea de ejemplo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" href=".css"> -->
+    <style>
+        .board{
+            display:grid;
+            grid-template-columns: repeat(auto-fit, minmax(15em,min-content))
+        }
+        .postit {
+            border:solid 2px black;
+            border-radius: 5px;
+            height: 15em;
+            text-align: center;
+            padding: 1em;
+        }
+        /* #postit_0 {background-color:aquamarine}
+        #postit_1 {background-color:rgb(180, 127, 255)}
+        #postit_2 {background-color:rgb(244, 255, 127)}
+        #postit_3 {background-color:rgb(255, 127, 193)}
+        #postit_4 {background-color:rgb(127, 180, 255)} */
+
+        .color_0 {background-color:aquamarine}
+        .color_1 {background-color:rgb(180, 127, 255)}
+        .color_2 {background-color:rgb(244, 255, 127)}
+        .color_3 {background-color:rgb(255, 127, 193)}
+        /* .color_4 {background-color:rgb(127, 180, 255)}  */
+    </style>
+</head>
+<body>
+    <input id="task" placeholder="Introduce tu tarea">
+    <button id="create">Nueva Tarea</button>
+    <div id="board" class="board"></div>
+    <script src="gestion_intento2.js"></script>
+</body>
+</html>
