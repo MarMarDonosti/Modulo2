@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'electronic';
-    src: url('electronic.TTF') format('woff');
+    src: url('images/electronic.TTF') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -154,6 +154,9 @@ a:hover{        /*el :hover hace que cuando pase el ratón por encima de ese ele
 }
 .experimentos {
     background-color: pink;
+}
+.gestion_tareas {
+    background-color: rgb(255, 143, 102);
 }
 footer{
     background-color: #444444;

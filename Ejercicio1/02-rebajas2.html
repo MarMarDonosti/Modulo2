@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <img src="icons8-joystick-96.png" alt="">
+        <img src="images/icons8-joystick-96.png" alt="">
         <h1>Arcade gaming</h1>
         <button class="menu-btn" onclick="toggleMenu()">☰</button>
     </header>
@@ -21,17 +21,15 @@
                 <input type="number" id="precio" name="precio" placeholder="Introduce el precio" required>
                 <br>
                 <select id="descuento" name="descuento">
-                    <option value="0">No tiene descuento</option>
-                    <option value="20">20 %</option>
-                    <option value="30">30 %</option>
-                    <option value="40">40 %</option>
-                    <option value="50">50 %</option>
+                    <option value= "20">20 %</option>
+                    <option value= "30">30 %</option>
+                    <option value= "40">40 %</option>
+                    <option value= "50">50 %</option>
                 </select><br><br>
         
-                <p id="precio_final"></p>
-                <button type="button" id="calcular" onclick="calcular_descuento()">Calcular</button>
-                <!--en el onclick tengo que poner el nombre de la función que quiero que se ejecute-->
-                <!--no lleva nada entre parántesis porque no tiene parámetro-->
+                <p id="resultado_rebajas"></p>
+                <input id="calcular" value="Calcular">
+                <!--<button type="button" id="calcular">Calcular</button>-->
             </div>
         </section>
     </main>
@@ -41,5 +39,5 @@
         </p>
     </footer> 
 </body>
-    <script src="rebajasfinal.js"></script>
+    <script src="rebajas2.js"></script>
 </html>
