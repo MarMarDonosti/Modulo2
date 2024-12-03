@@ -1,0 +1,21 @@
+
+.insert_info {
+    background-color: rgb(141, 141, 221);
+}
+
+#botonEnviar {
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#botonEnviar:hover {
+    background-color: rgb(1, 1, 179);
+    transform: scale(1.10);
+}
+
+/*creado desde js*/
+.postit {
+    background-color: yellow;
+}

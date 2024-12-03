@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8" /> 
+    <title>Numeros Perfectos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_mis_ejercicios.css"> 
+    <link rel="stylesheet" href="gestion.css">
+
+</head>
+<body>
+    <header>
+        <img src="icons8-joystick-96.png" alt="">
+        <h1>Arcade gaming</h1>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </header>
+    <main class="">        
+        <section class="insert_info">
+            <h2>· Gestion de tareas ·</h2>
+            <input type="text" id="tarea" name="tarea" placeholder="Tarea nueva" required>
+            <input type="date" id="fecha" name="fecha">
+            <select id="asignatura" name="asignatura">
+                <option value="Matematicas">Matemáticas</option>
+                <option value="Euskera">Euskera</option>
+                <option value="Ingles">Inglés</option>
+                <option value="Geohist">Geohistoria</option>
+                <option value="Tecno">Tecno</option>
+                <option value="Gaztelera">Gaztelera</option> 
+            </select>
+            <input type="button" id="botonEnviar" value="ENVIAR">
+        </section>
+        <section id="mensajeTareas">
+        </section>
+    </main>
+    <footer>
+        <p>
+            © Propiedad de Mrs Burns. Todos los derechos reservados
+        </p>
+    </footer> 
+</body>
+    <script src="gestion_tareas.js"></script>
+</html>

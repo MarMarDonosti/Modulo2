@@ -18,6 +18,15 @@ function es_perfecto(){
     // Comprobar si la suma de sus divisores es igual al numero
     const elemento = document.getElementById("perfecto"); // podría ser un var o un let en vez de const
     console.log(elemento)
+
+    //Para que me elimine los párrafos anteriores
+    //Le indico primero la seccion donde está lo que quiero eliminar (elemento) y entre paréntesis lo que quiero eliminar
+    //Comprobar si la suma de sus divisores es igual al
+    const parrafos = elemento.querySelectorAll("p");
+    parrafos.forEach(p => p.remove());
+    //
+
+
     const nuevo = document.createElement("p");
         // Cambiar el estilo del texto de la nueva p crada
         //nuevo.style.fontFamily = "Arial, sans-serif"; // Usa el nombre de la fuente que desees
