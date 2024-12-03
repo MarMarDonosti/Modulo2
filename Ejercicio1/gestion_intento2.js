@@ -8,13 +8,13 @@ const fecha = document.getElementById('fecha');
 
 // Obtener la sección donde se añadirá el mensaje y la imagen
 const seccion = document.getElementById("mensajeTareas"); //id mensajeTareas es el nombre que le he dado a la sección
-const nuevo = document.createElement("div");
+const nuevo = document.createElement("div"); // ELIMINO
 
 var etxerakoLanak = JSON.parse(localStorage.getItem('etxerakoLanak')) || [];
 
 //Asigno un evento al boton, cuando lo pulso se cra la tarea
 boton.addEventListener('click', () =>{
-    let tarea = taskInput.value.trim();
+    let tarea = taskInput.value.trim();  // CAMBIO TASKINPUT POR TAREA
 
     if(tarea){
         const newTask = {text};

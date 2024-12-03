@@ -15,7 +15,11 @@
     transform: scale(1.10);
 }
 
-/*creado desde js*/
+/*creado desde js. Darle estilo, el color lo pilla de otro class*/
 .postit {
     background-color: yellow;
 }
+.color_0 {background-color:aquamarine}
+.color_1 {background-color:rgb(180, 127, 255)}
+.color_2 {background-color:rgb(244, 255, 127)}
+.color_3 {background-color:rgb(255, 127, 193)}
