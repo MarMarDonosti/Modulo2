@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--<link rel="stylesheet" href=".css"> -->
     <style>
+        body {
+            margin:0;
+        }
+        main {
+            padding: 2em
+        }
         .board{
             display:grid;
             grid-template-columns: repeat(auto-fit, minmax(15em,min-content))
@@ -17,6 +23,7 @@
             text-align: center;
             padding: 1em;
         }
+
         /* #postit_0 {background-color:aquamarine}
         #postit_1 {background-color:rgb(180, 127, 255)}
         #postit_2 {background-color:rgb(244, 255, 127)}
@@ -28,12 +35,58 @@
         .color_2 {background-color:rgb(244, 255, 127)}
         .color_3 {background-color:rgb(255, 127, 193)}
         /* .color_4 {background-color:rgb(127, 180, 255)}  */
+
+        span {
+            font-size: 1.2em;
+            color: #555;
+        }
+        input, select {
+            width: 30%; /* Ancho completo */
+            padding: 10px; /* Espaciado interno */
+            margin-bottom: 2em; /* Espaciado inferior */
+            margin-top: 1em;
+            border: 1px solid #ccc; /* Borde */
+            border-radius: 8px; /* Bordes redondeados */
+        }
+        button {
+            background-color:#2d3aa0;
+            color: white; /* Color del texto */
+            padding: 0.7em;
+            padding-left: 3em;
+            padding-right: 3em;
+            border: none; /* Sin borde */
+            border-radius: 10px; /* Bordes redondeados */
+            cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: font-weight 0.4s;  /* Suaviza la transición */
+        }
+
+        button:hover {
+            transform: scale(1.10); /*Aumenta un poco el tamaño*/
+            background-color: #350a44;
+        }
     </style>
 </head>
 <body>
-    <input id="task" placeholder="Introduce tu tarea">
-    <button id="create">Nueva Tarea</button>
-    <div id="board" class="board"></div>
-    <script src="gestion_intento2.js"></script>
+    <header>
+
+    </header>
+    <main>
+        <select id="usuario" name="usuario">
+            <option value="Inigo">Iñigo</option>
+            <option value="Natalia">Natalia</option>
+            <option value="Eneko">Eneko</option>
+            <option value="Cleia">Cleia</option>
+            <option value="Sara">Sara</option>
+        </select>
+        <input id="task" placeholder="Introduce tu tarea">
+        <input type="date" id="fecha" name="fecha">
+        <button id="create">Nueva Tarea</button>
+        <button id="limpiar">Limpiar panel</button>
+        <br><br>
+        <div id="board" class="board"></div>
+    </main>
+    <script src="tareas.js"></script>
 </body>
 </html>

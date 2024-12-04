@@ -1,6 +1,8 @@
 //Identificar mis elementos de html
+const usuarioInput = document.getElementById('usuario');
 const taskInput = document.getElementById("task");
 const boton = document.getElementById ("create");
+const fechaInput = document.getElementById('fecha');
 const tasksContainer = document.getElementById("board"); // va a ser el div
 
 // Recupero la información de local Storage y la guardo en el array mis_tareas
@@ -10,13 +12,14 @@ var mis_tareas = JSON.parse(localStorage.getItem('mi_tarea')) || [];
 
 //Asigno un evento al boton, cuando lo pulso se cra la tarea
 boton.addEventListener('click', () =>{
+    let usuario = usuarioInput.value;
     let text = taskInput.value.trim(); //trim: Para eliminar los espacios de delante y de detrás
-                                                // si el usuario los ha introducido
+    let fecha = fechaInput.value;                                            // si el usuario los ha introducido
     console.log(text);
     //si tengo texto creo la tarea y si no no
-    if(text){
+    if(text && fecha){
         //Crear la tarea
-        const newTask = {text};
+        const newTask = {usuario, text, fecha};
         mis_tareas.push(newTask);
         localStorage.setItem('mi_tarea', JSON.stringify(mis_tareas));
 
@@ -26,26 +29,37 @@ boton.addEventListener('click', () =>{
     else {
         alert("Introduce la tarea")
     }                             
-})
+});
 
 //llamo a la función que me pintará las postit
 function render_tasks() {
+
     tasksContainer.innerHTML = ''; //Dejar vacío el contenedor (no tiene ningún postit pintado)
+
+
+    
     mis_tareas.forEach((element, index) => { //le añado el parámetro inventado (intuitivo) index
                                             //nos indica su posición en el array
                                             //hace referencia al índice interno del array
                                            //primer parámetro: el contenido del array (element, es este caso)
-                                            //segundo parámetro: la posición de ese contenido (index, en este caso)
-        //Si quiero añadir cosas:
-        var new_postit = document.createElement('div');
-        new_postit.className = "postit";
-        //Quiero que el backgroundcolor esté entre 4 definidos
-        new_postit.classList.add("color_"+(index%4)); //La siguiente línea que añade un id no sería necesaria
+                                           //segundo parámetro: la posición de ese contenido (index, en este caso)
+        const existe = document.getElementById('postit_'+ element.usuario);
+        if (existe){
+            existe.innerHTML += `<p>${element.text}</p><span>${element.fecha}<span>`;
+        } // += para que no sobreescriba sobre lo anterior
+        else {
+            //Si quiero añadir cosas:
+            var new_postit = document.createElement('div');
+            new_postit.className = "postit";
+            new_postit.id = "postit_"+ element.usuario;
+            //Quiero que el backgroundcolor esté entre 4 definidos
+            new_postit.classList.add("color_"+(index%4)); //La siguiente línea que añade un id no sería necesaria
 
-        new_postit.id = "postit_"+index; //Cada postit tendrá un id, se asignará id automáticamente añadiéndole número a postit_
-        // ahora lo añado al contenedor
-        new_postit.innerHTML = `<strong>${element.text}<strong>`;
-        tasksContainer.appendChild(new_postit);
+            new_postit.id = "postit_"+element.usuario; //Cada postit tendrá un id, se asignará id automáticamente añadiéndole número a postit_
+            // ahora lo añado al contenedor
+            new_postit.innerHTML = `<strong>${element.usuario}</strong><p>${element.text}</p><span>${element.fecha}<span>`;
+            tasksContainer.appendChild(new_postit);
+        }
     });
 }
 //llamo a la función dentro y fuera para ver las tareas anteriormente

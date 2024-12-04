@@ -3,6 +3,21 @@
     background-color: rgb(141, 141, 221);
 }
 
+.postit {
+    background-color: #f9f9f9; /* Fondo claro por defecto */
+    border: 1px solid #ddd; /* Borde sutil */
+    padding: 15px; /* Espaciado dentro del div */
+    margin: 10px 0; /* Espaciado entre tareas */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    font-family: Arial, sans-serif; /* Fuente clara */
+
+}
+.tablon {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(15em,min-content));
+}
+
 #botonEnviar {
     background-color: blue;
     color: white;
