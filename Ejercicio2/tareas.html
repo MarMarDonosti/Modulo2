@@ -8,20 +8,56 @@
     <style>
         body {
             margin:0;
+            /*background-image: url(https://img.freepik.com/fotos-premium/textura-pared-sensacion-viejo-gastado_336625-90.jpg?w=826);
+            */
+            /*background-image: url(https://media.istockphoto.com/id/1289661784/es/foto/reloj-de-pared-blanco-sobre-fondo-azul.jpg?s=612x612&w=0&k=20&c=St-H13lhUViz7MvVtWzymQF5EV54athIkYKJawFZl58=);
+            */
+            background-color: #03b5d9;
+        }
+        header {
+            background-color: #49cfea;
+            text-align: center;
+            padding-top: 1em;
+            padding-bottom: 1em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display:flex;
+            justify-content:space-evenly            
+        }
+        header img {
+            width: 5em;
+            border-radius: 40px;
+        }
+        h1 {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-shadow:  0 4px 8px rgba(0, 0, 0, 0.5);
+            font-size: 2em;
         }
         main {
-            padding: 2em
+            padding: 2em;
+            text-align: center;
         }
         .board{
             display:grid;
-            grid-template-columns: repeat(auto-fit, minmax(15em,min-content))
+            align-items: center;
+            justify-content: center;
+            gap: 1em;
+            grid-template-columns: repeat(auto-fit, minmax(15em,min-content));
+            background-image: url("https://img.freepik.com/fotos-premium/reciclar-papel-cerca-textura-papel-marron-utilizar-fondo_43157-3150.jpg?w=826");
+            background-size: cover;
+            padding: 2em;
+            border:solid 1em rgb(59, 33, 17);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 1.5);
         }
         .postit {
-            border:solid 2px black;
-            border-radius: 5px;
+            /*border:solid 2px black;*/
+            /*border-radius: 5px;*/
             height: 15em;
             text-align: center;
             padding: 1em;
+            display: block;
+            gap: 0.5em; /* espacio entre el círculo y el texto */
+            height: auto; /*Ajusta la altura según el contenido*/
+
         }
 
         /* #postit_0 {background-color:aquamarine}
@@ -47,6 +83,7 @@
             margin-top: 1em;
             border: 1px solid #ccc; /* Borde */
             border-radius: 8px; /* Bordes redondeados */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
         button {
             background-color:#2d3aa0;
@@ -60,17 +97,30 @@
             font-size: 1.2em;
             font-weight: bold;
             transition: font-weight 0.4s;  /* Suaviza la transición */
+            margin-right: em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         button:hover {
-            transform: scale(1.10); /*Aumenta un poco el tamaño*/
-            background-color: #350a44;
+            transform: scale(1.01); /*Aumenta un poco el tamaño*/
+            background-color: #0c1452;
+        }
+
+        .contenedor_circulo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1em;
+        }
+        .contenedor_circulo svg {
+            display: block;  /* Elimina el margen alrededor del SVG */
+            margin-right: 0.5em; /* Controla el margen entre el círculo y el texto */
         }
     </style>
 </head>
 <body>
     <header>
-
+        <img src="https://m.media-amazon.com/images/I/61taOJJ7-sS.__AC_SX300_SY300_QL70_ML2_.jpg">
+        <h1>Gestión de tareas</h1>
     </header>
     <main>
         <select id="usuario" name="usuario">

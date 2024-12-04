@@ -20,10 +20,12 @@
         body {
             height: 100%;
             margin: 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
 
         body {
             min-height: 100%;
+            font-size:1.1em;
             /*background-image: url('fondo_digital.jpg');*/
             background-image: url('https://img.freepik.com/vector-gratis/fondo-tecnologia-digital-alambre-malla-red_1017-27428.jpg?t=st=1733251087~exp=1733254687~hmac=327cc4e0a364fefb035fa38883f7fa37bfc7cee8faaaeabc85338bcc5dc2dce7&w=1060');
             background-size: cover;
@@ -89,7 +91,8 @@
             border-collapse: collapse;
             /* Elimina espacios entre las celdas */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: rgba(255, 255, 255, 0.4); /* Fondo blanco con opacidad */
+            background-color: rgba(255, 255, 255, 0.4);
+            /* Fondo blanco con opacidad */
         }
 
         table th,
@@ -100,11 +103,30 @@
             /*transition*/
         }
 
+        th {
+            font-size: 1.5em;
+        }
+
         table td:hover {
             /* background-color: rgba(255, 255, 255, 0.6); Fondo blanco con opacidad */
             background-color: black;
             color: white;
         }
+
+        table td:hover a {
+            color: white;
+            text-decoration:underline;
+        }
+
+        table td a {
+            color: black;
+            text-decoration: none;
+        }
+        span {
+            font-size: 1em;
+            color: #555;
+        }
+
     </style>
 </head>
 
@@ -123,10 +145,15 @@
                 <th>Email</th>
             </tr>
             <tr>
-                <td>Empresa 1</td>
-                <td>Celda bajo el encabezado2</td>
-                <td>Aquí va el lugar3</td>
-                <td>Aquí van las observaciones4</td>
+                <td><a href="https://adahigi.org/es/"
+                        title="Asociación de Déficit de Atención con Hiperactividad de Guipúzcoa">
+                        ADAHIgi</a></td>
+                <td>Katalina Eleizegi 40-Bajo 20009 Donostia<br>
+                    <span>Lun-Jue 9:00 - 13:00<br>
+                    Mar 16:00 - 19:00</span></td>
+                <td>943459594<br>
+                    619320099</td>
+                <td>adahigi@adahigi.org</td>
             </tr>
             <tr>
                 <td>Empresa 2</td>

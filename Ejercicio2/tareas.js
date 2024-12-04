@@ -57,7 +57,16 @@ function render_tasks() {
 
             new_postit.id = "postit_"+element.usuario; //Cada postit tendrá un id, se asignará id automáticamente añadiéndole número a postit_
             // ahora lo añado al contenedor
-            new_postit.innerHTML = `<strong>${element.usuario}</strong><p>${element.text}</p><span>${element.fecha}<span>`;
+            new_postit.innerHTML = `
+                <div class="contenedor_circulo">
+                    <svg width="20" height="20">
+                        <circle r="10" cx="10" cy="10" fill="red" />
+                    </svg>
+                </div>
+                <strong>${element.usuario}</strong>
+                <p>${element.text}</p>
+                <span>${element.fecha}<span>
+                `;
             tasksContainer.appendChild(new_postit);
         }
     });
@@ -65,3 +74,12 @@ function render_tasks() {
 //llamo a la función dentro y fuera para ver las tareas anteriormente
 //creadas al entrar en la página
 render_tasks()
+
+// Intentos para hacer un botón de limpiar
+const boton2 = document.getElementById ("limpiar");
+
+boton2.addEventListener('click', () =>{
+    localStorage.clear();  // Limpiar el almacenamiento local
+    mis_tareas = []; // Vaciar el array de tareas
+    render_tasks(); // Actualizar la vista de las tareas
+});
