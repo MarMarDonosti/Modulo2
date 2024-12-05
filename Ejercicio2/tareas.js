@@ -79,7 +79,8 @@ render_tasks()
 const boton2 = document.getElementById ("limpiar");
 
 boton2.addEventListener('click', () =>{
-    localStorage.clear();  // Limpiar el almacenamiento local
+    //localStorage.clear();  // Limpiar el almacenamiento local entero
+    localStorage.removeItem('mi_tarea');
     mis_tareas = []; // Vaciar el array de tareas
     render_tasks(); // Actualizar la vista de las tareas
 });

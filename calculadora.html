@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8" /> 
+    <title>Calculadora</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+                body {
+            margin:0;
+            background-color: #03b5d9;
+        }
+        header {
+            background-color: #49cfea;
+            text-align: center;
+            padding-top: 1em;
+            padding-bottom: 1em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display:flex;
+            justify-content:space-evenly            
+        }
+        h1 {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-shadow:  0 4px 8px rgba(0, 0, 0, 0.5);
+            font-size: 2em;
+        }
+        main {
+            padding: 2em;
+            text-align: center;
+        }
+        .result{
+
+            padding: 2em;
+            background-color: white;
+            border:solid 1em rgb(17, 59, 59);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 1.5);
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        input, select {
+            width: 25%; /* Ancho completo */
+            padding: 10px; /* Espaciado interno */
+            margin-bottom: 2em; /* Espaciado inferior */
+            margin-top: 1em;
+            border: 1px solid #ccc; /* Borde */
+            border-radius: 8px; /* Bordes redondeados */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        button {
+            background-color:#2d3aa0;
+            color: white; /* Color del texto */
+            padding: 0.7em;
+            padding-left: 3em;
+            padding-right: 3em;
+            border: none; /* Sin borde */
+            border-radius: 10px; /* Bordes redondeados */
+            cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: font-weight 0.4s;  /* Suaviza la transición */
+            margin-right: em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        button:hover {
+            transform: scale(1.01); /*Aumenta un poco el tamaño*/
+            background-color: #0c1452;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1>Calculadora</h1>
+    </header>
+    <main>
+        <input type="number" id="num1" name="num1" placeholder="Introduce un número" required>
+        <input type="number" id="num2" name="num2" placeholder="Introduce un número" required>
+        <br><br>
+        <button id="suma">+</button>
+        <button id="resta">-</button>
+        <button id="multi">X</button>
+        <button id="division">/</button>
+        <br><br>
+        <div id="result" class="result"></div>
+    </main>
+    <script src="calculadora.js"></script>
+</body>
