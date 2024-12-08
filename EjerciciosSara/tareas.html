@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tareas_Sencillas</title>
+    <style>
+        .board{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(15em,min-content));
+        }
+        .postit{
+            border: solid 2px black;
+            background-color: blanchedalmond;
+            border-radius: 5px;
+            height: 15em;
+        }
+        .color_0 {background-color: #31827c;}
+        .color_1 {background-color: #95c68f;}
+        .color_2 {background-color: #f7e9aa;}
+        .color_3 {background-color: #fc8a80;}     
+    </style>
+</head>
+<body>
+    <input id="task" placeholder="Introduce tu tarea">
+    <button id="create">Nueva Tarea</button>
+    <div id="board" class="board"></div>
+    <script src="tareas.js"></script> 
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8" /> 
+    <title>LocalStorage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=".css"> 
+
+</head>
+<body>
+    <header>
+        <h1>Posible examen LocalStorage</h1>
+    </header>
+    <!--
+    Crea una página web donde el usuario pueda ingresar su 
+    nombre y su edad.
+    
+    La página debe mostrar un mensaje con el nombre y la 
+    edad del usuario después de que los ingrese.
+    
+    Además, el nombre y la edad deben guardarse en 
+    el localStorage para que, si el usuario recarga la página, 
+    los valores previamente ingresados se mantengan.
+    
+    Si la edad ingresada no es un número, muestra un mensaje
+    de error
+    -->
+    <main>
+        <section>
+            <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required>
+            <input type="text" id="edad" name="edad" placeholder="Escribe tu edad" required>
+            <input type="submit" value="Enviar" id="enviar">
+            <div id="board" class="board"></div>
+        </section>
+    </main>
+    <footer>
+    </footer>
+    <script>
+        const nombre = document.getElementById ("nombre");
+        const edadInput = document.getElementById ("edad");
+        const botonEnviar = document.getElementById ("enviar");
+        const div_mensaje = document.getElementById("board"); // hace referencia al div crado para contener lo que pintamos
+
+        botonEnviar.addEventListener('click', (event) => {
+            // Prevenir el comportamiento predeterminado del formulario
+            event.preventDefault();
+            
+            const edad = Number(edadInput.value);
+
+            if (isNaN(edad) || edad>110 || edad===''){
+                alert ('Por favor, introduce una edad válida y de forma numérica');
+            }
+            else if (edad<18){
+                alert ('Debes ser mayor de edad para suscribirte a nuestro newsletter')
+            }
+            else {
+                let mensaje = `Gracias ${nombre.value}, te has suscrito existosamente a nuestro Newsletter!`;
+                div_mensaje.innerHTML = mensaje;
+
+                // Guardar los datos en localStorage
+                localStorage.setItem('nombre', nombre.value);
+                localStorage.setItem('edad', edad);                
+        }
+        })
+
+        // Cargar los datos del localStorage cuando la página se recarga
+        window.addEventListener('load', () => {
+            const nombreGuardado = localStorage.getItem('nombre');
+            const edadGuardada = localStorage.getItem('edad');
+
+            if (nombreGuardado && edadGuardada) {
+                let mensaje = `Bienvenido de nuevo, ${nombreGuardado}! Ya te suscribiste anteriormente a nuestro Newsletter a la edad de ${edadGuardada} años.`;
+                div_mensaje.innerHTML = mensaje;
+            }
+        });
+
+    </script>
+</body>
+</html>

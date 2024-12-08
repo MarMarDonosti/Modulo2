@@ -1,0 +1,82 @@
+        body {
+            margin:0;
+            background-color: #9ca7f5;
+        }
+        header {
+            text-align: center;
+            padding-top: 1em;
+            padding-bottom: 1em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-shadow:  0 4px 8px rgba(0, 0, 0, 0.5);
+            font-size: 2em;
+        }
+        main {
+            padding: 2em;
+            text-align: center;
+        }
+        section {
+            display: flex;
+            flex-direction: column;
+            justify-items: center;
+            align-items: center;
+        }
+        #contenedor-calcu {
+            /*Para imitar efecto metálico con reflejos*/
+            background: linear-gradient(45deg, #B0B0B0, #D3D3D3, #B0B0B0, #C0C0C0);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 4px 8px rgba(255, 255, 255, 0.5);
+            /*inset... :resplandor interno simula los reflejos del metal*/
+            padding: 1em;
+            padding-top: 0.5em;
+            border-radius: 15px;
+            width: 15em;
+        }
+        #contenedor-casResult {
+            display: flex;
+            justify-content: center;
+        }
+        #casilla-resultado{
+            border: solid black 0.2em;
+            background-color: white;
+            padding: 0.5em;
+            width: 10em;
+            height: 2.2em;
+            }
+        h4 {
+            margin: 0.5em;
+        }
+        input {
+            width: 28%; /* Ancho completo */
+            padding: 10px; /* Espaciado interno */
+            margin-bottom: 2em; /* Espaciado inferior */
+            margin-top: 0.5em;
+            border: 1px solid #ccc; /* Borde */
+            border-radius: 8px; /* Bordes redondeados */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        button {
+            background-color:#2d3aa0;
+            color: white;
+            padding: 0.7em 2em; /*El primero es vertical y el segundo horizontal*/
+            border: none;
+            border-radius: 10px;
+            cursor: pointer; 
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s ease; /* Transición suave para todos los cambios */
+            margin-bottom: 0.5em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Aumenta la sombra al hacer hover */
+            transform: translateY(-3px); /* Efecto de desplazamiento hacia arriba */
+            font-weight: normal; /* Cambiar peso de la fuente al pasar el mouse */
+        }
+
+        button:active {
+            transform: translateY(1px); /* Botón parece presionado cuando se hace clic */
+            box-shadow: none;
+        }

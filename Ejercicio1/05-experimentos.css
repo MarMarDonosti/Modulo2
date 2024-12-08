@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'electronic';
-    src: url('electronic.TTF') format('woff');
+    src: url('images/electronic.TTF') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -148,12 +148,13 @@ input[type="number"] {
 
 }
 
-input[type="submit"] {
+input[type="submit"], button {
     padding: 6px;
     padding-right: 20px;
     padding-left: 20px;
     border-radius: 8px;
     background-color: #fe8c42;
+    cursor: pointer;
 }
 
 /*vista de movil*/

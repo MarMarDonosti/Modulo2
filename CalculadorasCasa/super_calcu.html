@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8" />
+    <title>Calculadora</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+        }
+
+        h1 {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            font-size: 2em;
+        }
+
+        main {
+            padding: 2em;
+            text-align: center;
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            justify-items: center;
+            align-items: center;
+        }
+
+        #contenedor-calcu {
+            /*background-color: /*#C0C0C0;*/
+            /*#D3D3D3;*/
+            /*Para imitar efecto metálico con reflejos*/
+            background: linear-gradient(45deg, #B0B0B0, #D3D3D3, #B0B0B0, #C0C0C0);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 4px 8px rgba(255, 255, 255, 0.5);
+            /*inset... :resplandor interno simula los reflejos del metal*/
+            padding: 1em;
+            padding-top: 0.5em;
+            border-radius: 15px;
+            width: 15em;
+        }
+
+        button {
+            background-color: #2d3aa0;
+            color: white;
+            /* Color del texto */
+            padding: 0.7em;
+            padding-right: 0.8em;
+            padding-left: 0.8em;
+            /*border: none; /* Sin borde */
+            border-radius: 10px;
+            /* Bordes redondeados */
+            cursor: pointer;
+            /* Cambia el cursor al pasar sobre el botón */
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: font-weight 0.4s;
+            /* Suaviza la transición */
+            margin-bottom: 1em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            width: 2.7em;
+            /*esto lo ha descolocado todo*/
+        }
+
+        #bot-igual {
+            padding-left: 2.1em;
+            padding-right: 2.1em;
+        }
+
+        #contenedor-casResult {
+            display: flex;
+            justify-content: center;
+        }
+
+        #casilla-resultado {
+            border: solid black 0.2em;
+            background-color: white;
+            padding: 0.5em;
+            width: 10em;
+            height: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Operación aprobar sí o sí</h1>
+    </header>
+    <main>
+        <!--CALCULADORA-->
+        <section>
+            <h2>Calculadora</h2>
+            <div id="contenedor-calcu">
+                <h3>CASIO SUPER-PRO</h3>
+                <div id="contenedor-casResult">
+                    <div id="casilla-resultado"></div>
+                </div>
+                <br>
+                <button onclick="num0()">0</button>
+                <button onclick="num1()">1</button>
+                <button onclick="num2()">2</button>
+                <button onclick="num3()">3</button>
+                <br>
+                <button onclick="num4()">4</button>
+                <button onclick="num5()">5</button>
+                <button onclick="num6()">6</button>
+                <button onclick="num7()">7</button>
+                <br>
+                <button onclick="num8()">8</button>
+                <button onclick="num9()">9</button>
+                <button onclick="suma()">+</button>
+                <button onclick="resta()">-</button>
+                <br>
+                <button onclick="multi()">x</button>
+                <button onclick="division()">/</button>
+                <button onclick="igual()" id="bot-igual">=</button>
+
+            </div>
+        </section>
+    </main>
+    <footer>
+    </footer>
+    <script src="super_calcu.js"></script>
+</body>
+
+</html>

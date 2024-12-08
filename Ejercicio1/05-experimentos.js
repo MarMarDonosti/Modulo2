@@ -89,3 +89,39 @@ function tu_realidad (edad){
         // Añadir el nuevo contenido a la sección
         seccion.appendChild(nuevo);
     })
+
+    // JUEGO DE ADIVINACIÓN
+
+    let numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+
+function verificarSuposicion() {
+    const suposicion = parseInt(document.getElementById('suposicion').value);
+    const mensaje = document.getElementById('mensaje');
+
+    if (isNaN(suposicion)) {
+        mensaje.innerText = "Por favor, ingresa un número válido.";
+    } else if (suposicion < 1 || suposicion > 100) {
+        mensaje.innerText = "Por favor, ingresa un número entre 1 y 100.";
+    } else if (suposicion === numeroAleatorio) {
+        mensaje.innerText = `¡Correcto! El número era ${numeroAleatorio}.`;
+    } else if (suposicion < numeroAleatorio) {
+        mensaje.innerText = "El número es mayor.";
+    } else {
+        mensaje.innerText = "El número es menor.";
+    }
+}
+/**
+ *  Explicación de la línea:
+ *  let numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+   
+ *  Math.random():
+        Esta función genera un número decimal aleatorio entre 0 (inclusive) y 1 (exclusivo).
+    Math.random() * 100:
+        Multiplicamos el número aleatorio generado por Math.random() por 100. Esto nos da un número decimal aleatorio entre 0 (inclusive) y 100 (exclusivo). Por ejemplo, podríamos obtener un valor como 57.8923.
+    Math.floor(Math.random() * 100):
+        Math.floor() es una función que redondea hacia abajo a su número entero más cercano. Entonces, Math.floor(Math.random() * 100) convierte nuestro número decimal aleatorio en un número entero entre 0 y 99. Por ejemplo, Math.floor(57.8923) sería 57.
+    Math.floor(Math.random() * 100) + 1:
+        Finalmente, sumamos 1 al resultado para asegurarnos de que el número entero esté en el rango de 1 a 100 en lugar de 0 a 99. Entonces, si teníamos 57 después de usar Math.floor, ahora será 58.
+
+En resumen, toda la línea de código genera un número entero aleatorio entre 1 y 100 y lo asigna a la variable numeroAleatorio.
+ */

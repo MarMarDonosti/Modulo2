@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8" />
+    <title>Calculadora</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="calcu_8.12.css">
+    <style>
+    </style>
+</head>
+
+<body>
+    <header>
+    </header>
+    <main>
+        <section>
+            <h2>Calculadora</h2>
+            <div id="contenedor-calcu">
+                <h3>CASIO SUPER-PRO</h3>
+
+                <!--El atributo aria-live="polite mejora la acesibilidad
+                para usuarios con lectores de pantall. Anuncia al lector
+                los cambios en el resultado-->
+                <!--Aria-label proporciona descripciones claras sobre
+                las acciones de los botones mejorando la accesibilidad-->
+
+                <div id="contenedor-casResult">
+                    <div id="casilla-resultado" role="status" aria-live="polite"></div>
+                </div>
+                <br>
+                <div><!--Formulario de entrada-->
+                    <h4>Introduce 2 números</h4>
+                    <!--<label for="nume1">1er número</label>-->
+                    <input type="text" id="nume1" placeholder="1er número" aria-labelledby="nume1">
+                    <!--<label for="nume2">2º número</label>-->
+                    <input type="text" id="nume2" placeholder="2º número" aria-labelledby="nume2">
+                </div>      
+                <div id="botones-operaciones">    
+                    <button id="suma" aria-label="Sumar">+</button>
+                    <button id="resta" aria-label="Restar">-</button>
+                    <button id="multi" aria-label="Multiplicar">x</button>
+                    <button id="division" aria-label="Dividir">/</button>
+                    <button id="limpiar" aria-label="Borrar">C</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+    </footer>
+    <script src="calcu_8.12.js"></script>
+</body>
+
+</html>

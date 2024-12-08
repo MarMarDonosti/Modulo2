@@ -1,0 +1,181 @@
+
+        /* MARIA MARQUES GAMBOA*/
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    min-height: 100vh;
+    font-size: 1.1em;
+    background-image: url('https://img.freepik.com/vector-gratis/fondo-tecnologia-digital-alambre-malla-red_1017-27428.jpg?t=st=1733251087~exp=1733254687~hmac=327cc4e0a364fefb035fa38883f7fa37bfc7cee8faaaeabc85338bcc5dc2dce7&w=1060');
+    background-size: cover; /* Ajusta la imagen al tamaño de la pantalla */
+    background-position: center center; /* Centra la imagen en la pantalla */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed;  /* Fija la imagen de fondo */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer"
+}
+
+header {
+    grid-area: header;
+    padding: 2em;
+    padding-top: 0em;
+}
+
+main {
+    grid-area: main;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*flex-direction: column; /*necesario por los botones*/
+}
+
+footer {
+    grid-area: footer;
+    text-align: center;
+    padding: 1em;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    margin-top: 2.5em;
+}
+
+h1 {
+    font-family: "Tourney", sans-serif;
+    font-size: 3.5em;
+    font-weight: 400;
+    /*valor entre 100 y 900*/
+    text-align: end;
+}
+
+h2 {
+    font-family: "Zilla Slab Highlight", serif;
+    font-size: 2.5em;
+    font-weight: 400;
+    text-align: end;
+}
+
+table {
+    width: 80%;
+    /* ajusta el ancho de la tabla */
+    border-collapse: collapse;
+    /* Elimina espacios entre las celdas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.4);
+    /* Fondo blanco con opacidad */
+}
+
+table th,
+table td {
+    padding: 15px;
+    text-align: left;
+    /* Alinea el texto en las celdas */
+    /*transition: background-color 0.3s; /* Animación suave al cambiar el color */
+    /*transition: color 0.3s*/
+}
+
+th {
+    font-size: 1.5em;
+}
+
+table td:hover {
+    /* background-color: rgba(255, 255, 255, 0.6); Fondo blanco con opacidad */
+    background-color: #094c92;
+    /*background-color:black;*/
+    color: white;
+}
+
+table td:hover a {
+    color: white;
+    text-decoration: underline;
+}
+
+table td a {
+    color: black;
+    text-decoration: none;
+}
+
+span {
+    font-size: 1em;
+    color: #555;
+}
+table td:hover span {
+    color: white; /*letra blanca para los horarios con hover*/
+}
+
+td:nth-child(3) {
+    padding-left:1.5em; /*Centro un poco los teléfonos*/
+}
+
+
+/*vista de movil */
+@media(max-width: 767px) {
+    header {
+        padding: 0.5em;
+        /*display: grid;
+        grid-template-columns: 1fr;*/
+    }
+    h1, h2 {
+        text-align: center;
+    }
+    table, thead, tbody, th, td, tr {
+        display: block;
+    } /*Las celdas pasan a ser bloques para que se
+    puedan leer bien en movil*/
+    thead tr {
+        display:none;
+    } /*Elimino esa fila*/
+    tr {
+        margin-bottom: 10px;
+    }
+    /*¡td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+    /*td:before { /*para mostrar el nombre de la columna antes del contenido de cada celda*/
+        /*content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 10px;
+        font-weight: bold;
+        text-align: left; 
+    }*/
+    td:nth-child(1) { /*Las empresas harán de titulo*/
+        padding-left:1.5em;
+        background-color: #094c92;
+    }
+    td:nth-child(1) a { /*Nombres de empresas en blanco*/
+        color: white;
+    }
+    td:nth-child(3) {
+        padding-left:1em; /*Igualo el padding de los teléfonos*/
+    }
+    table {
+        width: 85%;
+        overflow-x: auto;
+    }
+
+    table th, table td {
+        font-size: 1em;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+    footer {
+        font-size: 1em;
+    }
+}
