@@ -85,7 +85,7 @@
             border-radius: 8px; /* Bordes redondeados */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
-        button {
+        .btn-arriba {
             background-color:#2d3aa0;
             color: white; /* Color del texto */
             padding: 0.7em;
@@ -100,10 +100,16 @@
             margin-right: em;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
-
-        button:hover {
+        .btn-arriba:hover {
             transform: scale(1.01); /*Aumenta un poco el tamaño*/
             background-color: #0c1452;
+        }
+        .btn-borrar {
+            background-color: transparent;
+            border: none;
+        }
+        .btn-borrar:hover {
+            cursor: pointer;
         }
 
         .contenedor_circulo {
@@ -114,6 +120,10 @@
         .contenedor_circulo svg {
             display: block;  /* Elimina el margen alrededor del SVG */
             margin-right: 0.5em; /* Controla el margen entre el círculo y el texto */
+        }
+        .completed {
+            text-decoration: line-through;
+            opacity:0.6
         }
     </style>
 </head>
@@ -132,8 +142,8 @@
         </select>
         <input id="task" placeholder="Introduce tu tarea">
         <input type="date" id="fecha" name="fecha">
-        <button id="create">Nueva Tarea</button>
-        <button id="limpiar">Limpiar panel</button>
+        <button id="create" class="btn-arriba">Nueva Tarea</button>
+        <button id="limpiar" class="btn-arriba">Limpiar panel</button>
         <br><br>
         <div id="board" class="board"></div>
     </main>

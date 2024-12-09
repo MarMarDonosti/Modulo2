@@ -41,6 +41,7 @@
         const edadInput = document.getElementById ("edad");
         const botonEnviar = document.getElementById ("enviar");
         const div_mensaje = document.getElementById("board"); // hace referencia al div crado para contener lo que pintamos
+        const datosUsuarioKey = 'usuarios'; //definir la clave para almacenar los datos del usuario
 
         botonEnviar.addEventListener('click', (event) => {
             // Prevenir el comportamiento predeterminado del formulario
@@ -58,19 +59,35 @@
                 let mensaje = `Gracias ${nombre.value}, te has suscrito existosamente a nuestro Newsletter!`;
                 div_mensaje.innerHTML = mensaje;
 
-                // Guardar los datos en localStorage
-                localStorage.setItem('nombre', nombre.value);
-                localStorage.setItem('edad', edad);                
-        }
+                // Guardar los datos en localStorage --> así lo hace individualmente
+                //localStorage.setItem('nombre', nombre.value);
+                //localStorage.setItem('edad', edad);
+                
+                //Obtener los datos actuales del localStorage
+                let usuarios = JSON.parse(localStorage.getItem(datosUsuarioKey)) || [];
+
+                // Crear un objeto con los datos del usuario
+                const nuevoUsuario = {nombre: nombre.value, edad: edad};
+
+                // Añadir el nuevo usuario al array
+                usuarios.push(nuevoUsuario);
+
+                //Guardar el array actualizado en localStorage
+                localStorage.setItem(datosUsuario, JSON.stringify(usuarios))                
+        }    //datosUsuario es el nombre de la clave, lo invento aquí
         })
+
+        leer = JSON.parse (localStorage.getItem(datosUsuario)) || [];
 
         // Cargar los datos del localStorage cuando la página se recarga
         window.addEventListener('load', () => {
-            const nombreGuardado = localStorage.getItem('nombre');
-            const edadGuardada = localStorage.getItem('edad');
+            const usuariosGuardados = JSON.parse(localStorage.getItem(datosUsuarioKey)) || [];
 
-            if (nombreGuardado && edadGuardada) {
-                let mensaje = `Bienvenido de nuevo, ${nombreGuardado}! Ya te suscribiste anteriormente a nuestro Newsletter a la edad de ${edadGuardada} años.`;
+
+            if (usuariosGuardados.lenght > 0) {
+                // Si hay usuarios guardados, mostrar el último usuario
+                const ultimoUsuario = usuariosGuardados[usuariosGuardados.length - 1];
+                let mensaje = `Bienvenido de nuevo, ${ultimoUsuario.nombre}! Ya te suscribiste anteriormente a nuestro Newsletter a la edad de ${utlimoUsuario.edad} años.`;
                 div_mensaje.innerHTML = mensaje;
             }
         });
