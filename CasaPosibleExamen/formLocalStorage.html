@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con js</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(215, 123, 31);
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        h3 {
+            text-align: center;
+            color: black;
+            margin-top: 60px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+
+        }
+
+        label {
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .formato {
+            margin-bottom: 2em;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 96%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        input[type="submit"] {
+            background-color: #41c7d3;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px;
+            width: 200px;
+            display: inline;
+
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0f6f78;
+            color: white;
+        }
+
+        .obligatorio {
+            color: red;
+            margin-top: 30px;
+        }
+
+        .red {
+            color: red
+        }
+
+        input[type="reset"] {
+            background-color: orangered;
+            border-radius: 5px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px;
+            width: 200px;
+            display: inline;
+        }
+
+        input[type="reset"]:hover {
+            background-color: rgb(126, 42, 12);
+            color: white;
+        }
+
+        .contenedor-botones {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 1em;
+        }
+
+        #confirmacion {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Centra los elementos horizontalmente */
+            text-align: center;
+            /* Asegura que el texto esté centrado */
+            width: 100%;
+            /* Asegura que el contenedor ocupe todo el ancho disponible */
+            box-sizing: border-box;
+            /* Incluye el padding en el ancho total */
+        }
+
+        #boton_regreso {
+            background-color: #41c7d3;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px;
+            width: 200px;
+            font-size: 16px;
+            /* Puedes ajustar el tamaño de la fuente */
+        }
+
+        #boton_regreso:hover {
+            background-color: #0f6f78;
+            color: white;
+        }
+        /*borde azul cuando se selecciona ese input. Viene bien cuando el usuario usa tabulador*/
+        input:focus { 
+            border-color: #4e90fd;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <main>
+        <h1>Colabora</h1>
+        <form action="#" method="GET" name="mascota" id="miFormulario">
+            <label for="nombre">Nombre y apellidos:<span class="red"> *</span></label>
+            <input type="text" id="nombre" name="nombre" placeholder="Introduce aquí tu nombre y apellidos" required>
+
+            <label for="email">Email:<span class="red"> *</span></label>
+            <input type="email" id="email" name="email" placeholder="Ej. nombre@company.com" required>
+
+            <label for="phone">Teléfono:<span class="red"> *</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="Ej: +34 600 123 456"
+                pattern="^\+34\s\d{3}\s\d{3}\s\d{3}$" required>
+            <small class="formato">Formato: +34 600 123 456</small>
+
+            <label for="CD">Código Postal:<span class="red"> *</span></label>
+            <input type="text" id="CD" name="CD" placeholder="Ej: 20123" required>
+
+            <div class="contenedor-botones">
+                <input type="submit" id="b-enviar" value="Enviar Información">
+
+                <input type="reset" id="b-borrar" value="Borrar todo">
+            </div>
+
+            <p class="obligatorio">*Campos obligatorios</p>
+            <div id="contenedorUsuarios"></div>
+            <div id="mensajeConfirmacion"></div>
+
+        </form>
+        <!-- Contenedor para mostrar la confirmación -->
+        <div id="confirmacion" style="display:none">
+            <div>
+                <h3>¡Gracias! El formulario ha sido enviado con éxito.</h3>
+            </div>
+            <div>
+                <!-- Botón para regresar a la página principal -->
+                <button id="boton_regreso" onclick="regresar()">Regresar a la página principal</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="formLocalStorage3.js"></script>
+</body>
+
+</html> <!--En el inspector: network se ven los valores que se han enviado-->
