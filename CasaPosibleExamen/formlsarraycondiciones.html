@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: auto;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+
+        .success {
+            color: green;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <main>
+        <div class="form-container">            <!--Para que los required funcionen tendría que
+                                                activar la validación predeterminada de HTML-->
+            <h2>Formulario de Registro</h2>
+            <form id="registrationForm">
+                <input type="text" id="name" placeholder="Nombre" required>
+                <input type="text" id="age" placeholder="Edad" required>
+                <input type="tel" id="phone" placeholder="Teléfono" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="text" id="location" placeholder="Localidad" required>
+                <input type="submit" value="Registrarme" id="enviar">
+            </form>
+            <div id="message" class="message"></div>
+            <div id="error-message" class="error"></div>
+        </div>
+    </main>            
+    <footer>
+
+    </footer>
+
+    <script>
+        // Referencias a los elementos del formulario
+        const nombre = document.getElementById("name");
+        const edad = document.getElementById("age");
+        const telefono = document.getElementById("phone");
+        const email = document.getElementById("email");
+        const localidad = document.getElementById("location");
+        const btnEnviar = document.getElementById("enviar");
+
+        // Mensaje de éxito y error
+        const divMensaje = document.getElementById("message");
+        const divErrorMensaje = document.getElementById("error-message");
+
+        btnEnviar.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            // Limpiar cualquier mensaje anterior
+            divMensaje.innerHTML = '';
+            divErrorMensaje.innerHTML = '';
+
+            // Validación de la edad
+            const edadValor = Number(edad.value);
+
+            if (isNaN(edadValor) || edadValor > 110 || edadValor <= 0) {
+                divErrorMensaje.innerHTML = 'Por favor, introduce una edad válida y de forma numérica';
+            } else if (edadValor < 18) {
+                divErrorMensaje.innerHTML = 'Debes ser mayor de edad para suscribirte a nuestro newsletter';
+            } else {
+                // Guardar los datos en localStorage
+                const usuario = {
+                    nombre: nombre.value,
+                    edad: edad.value,
+                    telefono: telefono.value,
+                    email: email.value,
+                    localidad: localidad.value
+                };
+                localStorage.setItem("usuario", JSON.stringify(usuario));
+
+                // Mostrar mensaje de confirmación
+                divMensaje.innerHTML = `Gracias ${nombre.value}, te has suscrito exitosamente a nuestro Newsletter!`;
+            }
+        });
+    </script>
+</body>
+
+</html>

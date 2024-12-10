@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
-    <meta charset="UTF-8" /> 
+    <meta charset="UTF-8" />
     <title>Mates</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -14,14 +15,15 @@
         }
 
         h1 {
-                text-align:center;
-                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
+
         label {
-                font-size:16px;
-                margin-bottom: 10px;
-                display:block;
-            }
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: block;
+        }
 
         input[type="text"] {
             width: 96%;
@@ -40,8 +42,9 @@
             cursor: pointer;
             margin-top: 30px;
             width: 200px;
-            display:inline;
+            display: inline;
         }
+
         input[type="submit"]:hover {
             background-color: #0f6f78;
             color: white;
@@ -60,7 +63,7 @@
             cursor: pointer;
             margin-top: 30px;
             width: 200px;
-            display:inline;
+            display: inline;
         }
 
         input[type="reset"]:hover {
@@ -69,52 +72,65 @@
         }
 
         .contenedor-botones {
-            display:flex;
-            justify-content:space-around;
+            display: flex;
+            justify-content: space-around;
             margin-top: 30px;
         }
+
         .board {
             margin-top: 2em;
             background-color: white;
             padding: 1em;
             border-radius: 8px;
         }
+
         .figuras {
             background-color: white;
             /*display:grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 10px;*/
             align-items: center;
-            display:flex;
-            justify-content:space-around;
+            display: flex;
+            justify-content: space-around;
             flex-wrap: wrap;
-            
+
         }
+
         .figuras img {
             width: 15em;
         }
-        .figuras img:hover {
 
+        .figuras img:hover {
+            opacity: 0.7;
+        }
+
+        /* Ocultar todas las secciones al principio */
+        .trigonometria>div {
+            display: none;
         }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Matematicas</h1>
     </header>
     <main>
         <section class="figuras">
-            <img src="https://www.neurochispas.com/wp-content/uploads/2021/03/radio-de-un-circulo.png" alt="Círculo con su radio" title="Círculo">
-            <img src="https://www.neurochispas.com/wp-content/uploads/2022/06/Formula-de-la-altura-de-un-triangulo-equilatero.png" alt="Triángulo" title="Triángulo">
-            <img src="https://calculatodo.com/img/areas/cuadrado.png" alt="cuadrado" title="cuadrado">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Lados_del_rect%C3%A1ngulo.png" alt="rectangulo" title="rectangulo">
+            <img src="https://www.neurochispas.com/wp-content/uploads/2021/03/radio-de-un-circulo.png" id="imgCirculo"
+                alt="Círculo con su radio" title="Círculo">
+            <img src="https://www.neurochispas.com/wp-content/uploads/2022/06/Formula-de-la-altura-de-un-triangulo-equilatero.png"
+                id="imgTriangulo" alt="Triángulo" title="Triángulo">
+            <img src="https://calculatodo.com/img/areas/cuadrado.png" id="imgCuadrado" alt="cuadrado" title="cuadrado">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Lados_del_rect%C3%A1ngulo.png"
+                id="imgRectangulo" alt="rectangulo" title="rectangulo">
         </section>
         <section class="trigonometria">
             <div>
                 <h2>Círculo</h2>
                 <input type="text" id="radio_circulo" placeholder="Escribe el radio del círculo" required>
                 <input type="submit" value="Enviar" id="enviar_circulo">
-                <div id="resultado_circulo" class="board"></div>
+                <div id="resultado_circulo" class="board" style="display:none"></div>
             </div>
             <div>
                 <h2>Triángulo</h2>
@@ -129,9 +145,9 @@
                 <div id="resultado_cuadrado" class="board"></div>
             </div>
             <div>
-                <h2>Cuadrado rectángulo</h2>
-                <input type="text" id="altura_rectangulo" placeholder="Escribe la altura del cuadrado" required>
-                <input type="text" id="base_rectangulo" placeholder="Escribe la base del cuadrado" required>
+                <h2>Rectángulo</h2>
+                <input type="text" id="altura_rectangulo" placeholder="Escribe la altura del rectángulo" required>
+                <input type="text" id="base_rectangulo" placeholder="Escribe la base del rectángulo" required>
                 <input type="submit" value="Enviar" id="enviar_rectangulo">
                 <div id="resultado_rectangulo" class="board"></div>
             </div>
@@ -141,4 +157,5 @@
     </footer>
     <script src="matematicasweb.js"></script>
 </body>
+
 </html>
