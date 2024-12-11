@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Nombres</title>
+</head>
+
+<body>
+    <h2>Registro de Nombres</h2>
+    <input type="text" id="name" placeholder="Introduce tu nombre">
+    <button id="añadir">Añadir Nombre</button>
+
+    <ul id="lista"></ul>
+
+    <script>
+        // Referencias a los elementos
+        const nameInput = document.getElementById("name");
+        const btnAnadir = document.getElementById("añadir");
+        const listaAnadidos = document.getElementById("lista");
+
+        // Cargar los nombres desde localStorage al inicio
+        let names = JSON.parse(localStorage.getItem("names")) || [];
+
+        // Función para mostrar los nombres en la página
+        function displayNames() {
+            listaAnadidos.innerHTML = ''; // Limpiar la lista actual
+            names.forEach(function (name) {
+                const li = document.createElement("li"); // Crea un nuevo elemento de lista (li) para cada nombre, para hacer listado.
+                li.textContent = name; // Establece el texto del elemento li como el nombre que está siendo procesado en el array.
+                listaAnadidos.appendChild(li); // Añade el nuevo elemento li a la lista (ul), mostrando el nombre.
+            });
+        }
+
+        // Función para añadir un nuevo nombre
+        function addName() {
+            const name = nameInput.value.trim(); // Obtiene el valor del campo de texto y elimina los espacios al principio y al final.
+            if (name === "") {
+                alert("Por favor, ingresa un nombre.");
+                return;
+            }
+
+            // Añadir el nuevo nombre al array
+            names.push(name);
+
+            // Guardar el array de nombres en localStorage
+            localStorage.setItem("names", JSON.stringify(names));
+
+            // Limpia el campo de texto después de añadir el nombre.
+            nameInput.value = '';
+            displayNames(); // Vuelve a mostrar la lista actualizada con el nuevo nombre añadido.
+        }
+
+        // Añadir el nombre cuando el usuario hace clic en el botón
+        btnAnadir.addEventListener("click", addName);
+
+        // Mostrar los nombres al cargar la página
+        displayNames();
+
+    </script>
+</body>
+
+</html>
