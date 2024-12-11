@@ -91,8 +91,8 @@ botonCuadrado.addEventListener("click", () => {
 })
 
 function cuadrado (l) {
-    perimetro = 4 * l;
-    area = l**2;
+    let perimetro = 4 * l;
+    let area = l**2;
 
     return `El perímetro del cuadrado es igual a ${perimetro.toFixed(2)} y su area es ${area.toFixed(2)}`;
 }
@@ -117,10 +117,31 @@ botonRectangulo.addEventListener("click", () => {
 
 })
 function cuadrado_rectangulo (x, y) {
-    perimetro = 2*x + 2*y;
-    area = x * y;
+    let perimetro = 2*x + 2*y;
+    let area = x * y;
 
     return `El perímetro del cuadrado rectángulo es igual a ${perimetro.toFixed(2)} y su area es ${area.toFixed(2)}`;
 }
 var rectangulo = cuadrado_rectangulo (2, 4);
 console.log(rectangulo);
+
+
+///////OCULTAR - DESOCULTAR
+
+const imgCirculo = document.getElementById("imgCirculo");
+const seccionCirculo = document.getElementById("seccionCirculo");
+const secciones = document.querySelectorAll(".trigonometria > div");
+
+// Función para ocultar todas las secciones
+function ocultarSecciones() {
+    seccionCirculo.style.display = "none";
+}
+
+// Asociar eventos de clic a las imágenes
+imgCirculo.addEventListener("click", function() {
+    // Ocultar todas las secciones
+    ocultarSecciones();
+    // Mostrar solo la sección correspondiente
+    //seccionCirculo.parentElement.style.display = "block"; 
+    seccionCirculo.style.display= 'block';
+});

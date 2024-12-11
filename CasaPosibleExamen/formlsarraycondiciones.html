@@ -97,8 +97,9 @@
         // Mensaje de éxito y error
         const divMensaje = document.getElementById("message");
         const divErrorMensaje = document.getElementById("error-message");
+        const form = document.getElementById("registrationForm")
 
-        btnEnviar.addEventListener('click', (event) => {
+        form.addEventListener('submit', function(event) {
             event.preventDefault();
 
             // Limpiar cualquier mensaje anterior
@@ -110,22 +111,33 @@
 
             if (isNaN(edadValor) || edadValor > 110 || edadValor <= 0) {
                 divErrorMensaje.innerHTML = 'Por favor, introduce una edad válida y de forma numérica';
-            } else if (edadValor < 18) {
+                return;
+            } 
+            
+            if (edadValor < 18) {
                 divErrorMensaje.innerHTML = 'Debes ser mayor de edad para suscribirte a nuestro newsletter';
-            } else {
+                return;
+            }
+                // Obtener los usuarios almacenados en el localStorage
+                let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
                 // Guardar los datos en localStorage
-                const usuario = {
+                const nuevoUsuario = {
                     nombre: nombre.value,
                     edad: edad.value,
                     telefono: telefono.value,
                     email: email.value,
                     localidad: localidad.value
                 };
-                localStorage.setItem("usuario", JSON.stringify(usuario));
+                // Agregar el nuevo usuario al array
+                usuarios.push(nuevoUsuario);
+
+                // Guardar el array actualizado en el localStorage
+                localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
                 // Mostrar mensaje de confirmación
                 divMensaje.innerHTML = `Gracias ${nombre.value}, te has suscrito exitosamente a nuestro Newsletter!`;
-            }
+            
         });
     </script>
 </body>
