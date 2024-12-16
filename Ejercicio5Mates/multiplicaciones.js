@@ -28,6 +28,7 @@ while (i<=10) {
 //SUMAS
 
 function sumas (num1, num2) {
-    for (let i=)
-        console.log(`${num1} + ${num2} = ${i}`)
+    let i=0
+    console.log(`${num1} + ${num2} = ${i}`)
 }
+

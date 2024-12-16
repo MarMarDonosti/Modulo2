@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-
+                <!-- MARIA MARQUES GAMBOA -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,6 +50,20 @@
             color: white;
         }
 
+        .aceptar {
+            margin-top: 0.5em;
+            display:grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            justify-content: start;
+            gap: 10px;
+            width: 100%
+        }
+
+        input[type="checkbox"] {
+            margin: 0; 
+        }
+        
         .contenedor-btn {
             display: flex;
             justify-content: center;
@@ -62,6 +76,7 @@
             margin-top: 2em;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
             transition: box-shadow 0.3s ease;
+            font-size: 16px;
         }
 
         /* Estilo cuando el botón está presionado */
@@ -76,10 +91,27 @@
             cursor: pointer;
         }
 
+        .login {
+            text-align: center;
+        }
+
+        .login a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .login a:hover {
+            text-decoration:underline;
+        }
+
+        .login span {
+            font-weight: bold;
+        }
+
         .message {
             margin-top: 20px;
             text-align: center;
-            background-color: white;
+            background-color: #dec9cd;
             border-radius: 5px;
         }
 
@@ -103,19 +135,16 @@
                 <input type="text" id="name" placeholder="Name" required>
                 <input type="text" id="last_name" placeholder="Last name" required>
                 <input type="text" id="dni" placeholder="DNI" required>
-                <input type="text" id="pasword" placeholder="Password" required>
+                <input type="password" id="password" placeholder="Password" required>
                 <div class="aceptar">
-                    <label for="aceptar">
+                    <label for="aceptar" class="aceptar">
                         <input type="checkbox" id="aceptar" name="aceptar" value="sí" required> I accept all terms & conditions
                     </label>
                 </div>
-                <!--<input type="text" id="age" placeholder="Edad" required>
-                <input type="tel" id="phone" placeholder="Teléfono" required>
-                <input type="email" id="email" placeholder="Email" required>
-                <input type="text" id="location" placeholder="Localidad" required>-->
                 <div class="contenedor-btn">
                     <input type="submit" value="Register Now" id="enviar">
                 </div>
+                <p class="login"><span>Already have an account?</span> <a href="">Login now</a></p>
             </form>
             <div id="message" class="message"></div>
             <div id="error-message" class="error"></div>
@@ -128,11 +157,11 @@
     <script>
         // Referencias a los elementos del formulario
         const nombre = document.getElementById("name");
-        const edad = document.getElementById("age");
-        const telefono = document.getElementById("phone");
-        const email = document.getElementById("email");
-        const localidad = document.getElementById("location");
-        const btnEnviar = document.getElementById("enviar");
+        const apellido = document.getElementById("last_name");
+        const dni = document.getElementById("dni");
+        const password = document.getElementById("password");
+        const aceptar = document.getElementById("aceptar");
+        const enviar = document.getElementById("enviar");
 
         // Mensaje de éxito y error
         const divMensaje = document.getElementById("message");
@@ -146,52 +175,46 @@
             divMensaje.innerHTML = '';
             divErrorMensaje.innerHTML = '';
 
-            // Validación de la edad
-            const edadValor = Number(edad.value);
+            // Ocultar ambos contenedores antes de mostrar los nuevos mensajes
+            // Si no los oculto para luego hacerlos aparecer con display block, con el mensaje de confirmación
+            // aparece también una franja blanca del mensaje de error, probablemente por el padding
+            divMensaje.style.display = 'none';
+            divErrorMensaje.style.display = 'none';
 
-            if (isNaN(edadValor) || edadValor > 110 || edadValor <= 0) {
-                divErrorMensaje.innerHTML = 'Por favor, introduce una edad válida y de forma numérica';
-                divErrorMensaje.style.padding = '1em'
-                return;
-            }
-
-            if (edadValor < 18) {
-                divErrorMensaje.innerHTML = 'Debes ser mayor de edad para suscribirte a nuestro newsletter';
-                divErrorMensaje.style.padding = '1em'
-                return;
-            }
             // Obtener los usuarios almacenados en el localStorage
             let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-            //
+            
             // Comprobar si el usuario ya está registrado
-            const usuarioExistente = usuarios.find(usuario => usuario.email === email.value);
+            const usuarioExistente = usuarios.find(usuario => usuario.dni === dni.value);
 
             /* Se podría comprobar si está registrado con forEach pero es menos eficiente que find
             porque find detiene la búsqueda una vez que encuentra la coincidencia, lo que puede
             ahorrar recursos
 
+            Pero con forEach sería así:
+
             let usuarioExistente = false;
 
             usuarios.forEach(function(usuario) {
-                if (usuario.email === email.value) {
+                if (usuario.dni === dni.value) {
                     usuarioExistente = true;
                 }
             });*/
 
-
             if (usuarioExistente) {
-                divErrorMensaje.innerHTML = 'Este correo electrónico ya está registrado.';
+                divErrorMensaje.innerHTML = 'This DNI is already registered.';
                 divErrorMensaje.style.padding = '1em'
+                divErrorMensaje.style.display = 'block'; // Mostrar el mensaje de error
                 return;
             }
-            //
+            
             // Guardar los datos en localStorage
             const nuevoUsuario = {
                 nombre: nombre.value,
-                edad: edad.value,
-                telefono: telefono.value,
-                email: email.value,
-                localidad: localidad.value
+                apellido: apellido.value,
+                dni: dni.value,
+                password: password.value,
+                aceptar: aceptar.value
             };
             // Agregar el nuevo usuario al array
             usuarios.push(nuevoUsuario);
@@ -200,9 +223,10 @@
             localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
             // Mostrar mensaje de confirmación
-            divMensaje.innerHTML = `Gracias ${nombre.value}, te has suscrito exitosamente a nuestro Newsletter!`;
-            divMensaje.style.padding = '1em'
-            // El padding no lo puedo poner en CSS porque queda el fondo permanente
+            divMensaje.innerHTML = `Thank you ${nombre.value}, you have successfully subscribed!`;
+            divMensaje.style.padding = '1em';  // El padding no lo puedo poner en CSS porque queda el fondo permanente
+            divMensaje.style.display = 'block'; // Mostrar el mensaje de confirmación
+            
         });
     </script>
 </body>
