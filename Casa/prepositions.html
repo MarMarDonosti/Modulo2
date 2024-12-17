@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background: rgb(247, 182, 182);
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            width: 35em;
+            margin: 2em;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+        }
+
+        button {
+            padding: 1em;
+            border-radius: 8px;
+            background-color: rgb(0, 191, 255);
+        }
+
+        .score {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Header</h1>
+    </header>
+    <main>
+        <div class="form-container">
+            <h2>Prepositions - AT, IN, ON</h2>
+            <form id="form">
+                <label for="prep1">1. She doesn't look that ols, but she must be <select id="prep1" name="prep1"
+                        required>
+                        <option value="at">at</option>
+                        <option value="in">in</option>
+                        <option value="on">on</option>
+                    </select> her late sixties.</label>
+                <div class="error-message" id="Error1"></div>
+
+                <br><br>
+                <label for="prep2">2. The castle was built <select id="prep2" name="prep2" required>
+                        <option value="at">at</option>
+                        <option value="in">in</option>
+                        <option value="on">on</option>
+                    </select> the Middle Ages.</label>
+                <div class="error-message" id="Error2"></div>
+
+                <br><br>
+                <label for="prep3">3. There's some kind of dark spot <select id="prep3" name="prep3" required>
+                        <option value="at">at</option>
+                        <option value="in">in</option>
+                        <option value="on">on</option>
+                    </select> the ceiling. What is it?.</label>
+                <div class="error-message" id="Error3"></div>
+
+                <br><br>
+                <label for="prep4">4. The boys left home <select id="prep4" name="prep4" required>
+                        <option value="at">at</option>
+                        <option value="in">in</option>
+                        <option value="on">on</option>
+                    </select> the age of 16.</label>
+                <div class="error-message" id="Error4"></div>
+
+                <br><br>
+                <label for="prep5">5. The souvenir shops make a lot of money <select id="prep5" name="prep5" required>
+                        <option value="at">at</option>
+                        <option value="in">in</option>
+                        <option value="on">on</option>
+                    </select> a national holiday.</label>
+                <div class="error-message" id="Error5"></div>
+
+                <br><br>
+                <label for="prep6">6. The manager has an appointment with a new client <select id="prep6" name="prep6"
+                        required>
+                        <option value="at">at</option>
+                        <option value="in">in</option>
+                        <option value="on">on</option>
+                    </select> 5 p.m.</label>
+                <div class="error-message" id="Error6"></div>
+
+                <br><br>
+                <label for="prep7">7. She sleeps <select id="prep7_1" name="prep7_1" required>
+                        <option value="at">at</option>
+                        <option value="in">in</option>
+                        <option value="on">on</option>
+                    </select> the morning and works <select id="prep7_2" name="prep7_2" required>
+                        <option value="at">at</option>
+                        <option value="in">in</option>
+                        <option value="on">on</option>
+                    </select> night.</label>
+                <div class="error-message" id="Error7"></div>
+
+                <br><br>
+                <label for="prep8">8. It's already 9 a.m. and he is still <select id="prep8" name="prep8" required>
+                        <option value="at">at</option>
+                        <option value="in">in</option>
+                        <option value="on">on</option>
+                    </select> bed.</label>
+                <div class="error-message" id="Error8"></div>
+
+                <br><br>
+                <label for="prep9">9. I couldn't find that small village <select id="prep9" name="prep9" required>
+                        <option value="at">at</option>
+                        <option value="in">in</option>
+                        <option value="on">on</option>
+                    </select> any map.</label>
+                <div class="error-message" id="Error9"></div>
+
+                <br><br>
+                <label for="prep10">10. My dad plans to return from his business trip <select id="prep10" name="prep10"
+                        required>
+                        <option value="at">at</option>
+                        <option value="in">in</option>
+                        <option value="on">on</option>
+                    </select> Saturday or Sunday evening.</label>
+                <div class="error-message" id="Error10"></div>
+
+                <br><br>
+                <label for="prep11">11. My sister is <select id="prep11" name="prep11" required>
+                        <option value="at">at</option>
+                        <option value="in">in</option>
+                        <option value="on">on</option>
+                    </select> work right now so you can't reach her.</label>
+                <div class="error-message" id="Error11"></div>
+
+                <br><br>
+                <label for="prep12">12. I saw the article <select id="prep12" name="prep12" required>
+                        <option value="at">at</option>
+                        <option value="in">in</option>
+                        <option value="on">on</option>
+                    </select> the back page of the newspaper.</label>
+                <div class="error-message" id="Error12"></div>
+
+                <br><br>
+                <label for="prep13">13. The sailors were very tired. They had been <select id="prep13" name="prep13"
+                        required>
+                        <option value="at">at</option>
+                        <option value="in">in</option>
+                        <option value="on">on</option>
+                    </select> sea for over two months.</label>
+                <div class="error-message" id="Error13"></div>
+
+                <br><br>
+                <button type="submit">Enviar respuestas</button>
+            </form>
+            <div class="score" id="score"></div> <!-- Aquí se mostrará el recuento de aciertos -->
+        </div>
+    </main>
+    <footer>
+        footer
+    </footer>
+</body>
+<script>
+    document.getElementById("form").addEventListener("submit", function (event) {
+        event.preventDefault();  // Prevenir que el formulario se envíe para la validación
+
+        let errors = 0;
+
+        // Respuestas correctas (en base a los valores correctos de cada pregunta)
+        const correctAnswers = {
+            prep1: "in",
+            prep2: "in",
+            prep3: "on",
+            prep4: "at",
+            prep5: "on",
+            prep6: "at",
+            prep7_1: "in",
+            prep7_2: "at",
+            prep8: "in",
+            prep9: "in",
+            prep10: "on",
+            prep11: "at",
+            prep12: "on",
+            prep13: "at"
+        };
+
+        let correctCount = 0;
+
+        // Validación de las respuestas
+        for (let i = 1; i <= 13; i++) {
+            const prepId = `prep${i}`;
+            const prepValue = document.getElementById(prepId)?.value || document.getElementById(`prep${i}_1`)?.value;
+
+            if (prepValue === correctAnswers[prepId]) {
+                document.getElementById(`Error${i}`).textContent = "";  // No mostrar error
+                correctCount++;
+            } else {
+                document.getElementById(`Error${i}`).textContent = "Respuesta incorrecta";  // Mostrar error
+            }
+        }
+
+        // Mostrar el recuento de aciertos
+        document.getElementById("score").textContent = `Número de respuestas correctas: ${correctCount} de 13`;
+    });
+</script>
+
+</html>

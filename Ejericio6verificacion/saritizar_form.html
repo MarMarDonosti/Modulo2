@@ -41,7 +41,7 @@
         }
 
         .form-group input {
-            width: 100%;
+            width: 94%;
             padding: 8px;
             border: 1px solid #ddd;
             border-radius: 4px;
@@ -98,6 +98,7 @@
                 <label for="direccion">Dirección</label>
                 <input type="text" id="direccion" name="direccion"
                     placeholder="ej. C/ Lasarte, nº 21, 3º izquierda. CP/ 20007">
+                    <div class="error-message" id="direccionError">La dirección contiene caracteres no permitidos.</div>
             </div>
 
             <div class="form-group">
@@ -183,6 +184,17 @@
                 nombreError.style.display = 'none';   // Oculta el mensaje de error si el campo no está vacío
             }
 
+            // Validar Dirección          
+            const direccionLimpia = direccionInput.value;
+            const direccionValida = /^[a-zA-Z0-9\s\ª\º\/\,\.\;\(\)]+$/g.test(direccionLimpia);
+            if (!direccionValida) {
+                direccionError.style.display = 'block';
+                direccionError.style.padding = '1em';
+                isValid = false;
+            }else {
+                direccionError.style.display = 'none';
+            }
+
             // Validar Email
             if (!emailInput.value.includes('@')) {
                 emailError.style.display = 'block';
@@ -211,7 +223,8 @@
 
             /////////////////////////
             const tfnoInputValue = tfnoInput.value.trim();
-            const tfnoSaritizado = /^\+?[0-9]{10,15}$/;  // Expresión regular para un número de teléfono (opcionalmente con un +)
+            const tfnoSaritizado = /^\+?\d{1,3}[\s\-]?\(?\d{1,3}\)?[\s\-]?\d{3}[\s\-]?\d{3,4}$/;
+            //    /^\+?[0-9]{10,15}$/;  // Expresión regular para un número de teléfono (opcionalmente con un +)
 
             if (!tfnoSaritizado.test(tfnoInputValue)) {
                 document.getElementById('tfnoError').style.display = 'block';
