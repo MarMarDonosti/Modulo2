@@ -74,6 +74,7 @@
             margin-bottom: 10px;
             display: none;
         }
+
         small {
             color: grey;
             margin-left: 1em;
@@ -86,10 +87,11 @@
         <h2>Registro de Usuario</h2>
         <form id="registrationForm">
             <div class="form-group">
-                <label for="nombre">Nombre Completo</label>     <!--No se puede usar una expresión regular con delimitadores (/g) en el atributo pattern de un campo de entrada HTML. En su lugar, se debería usar una expresión regular adecuada para aceptar solo letras y espacios:-->
-                <input type="text" id="nombre" name="nombre" pattern="^[a-zA-Z\s]+$" placeholder="Introduce tu nombre" required> <!--\s : para aceptar espacios y tabulaciones-->
-                <div class="error-message" id="nombreError"
-                    >El nombre es obligatorio.</div>
+                <label for="nombre">Nombre Completo</label>
+                <!--No se puede usar una expresión regular con delimitadores (/g) en el atributo pattern de un campo de entrada HTML. En su lugar, se debería usar una expresión regular adecuada para aceptar solo letras y espacios:-->
+                <input type="text" id="nombre" name="nombre" pattern="^[a-zA-Z\s]+$" placeholder="Introduce tu nombre"
+                    required> <!--\s : para aceptar espacios y tabulaciones-->
+                <div class="error-message" id="nombreError">El nombre es obligatorio.</div>
             </div>
 
             <div class="form-group">
@@ -106,13 +108,16 @@
             </div>
 
             <div class="form-group">
-                <label for="telefono">Teléfono/móvil</label>                                            <!--pattern="/^(?:\+34)*\d{9}$/g"-->
-                <input type="text" id="telefono" name="telefono" placeholder="ej.+34 600 000 000" pattern="^\+?[0-9\s\-]+$" required> <!--para permitir el código de país opcional y varios separadores (como guiones y espacios).-->
-                <div class="error-message" id="tfnoError">Ingresa un número de teléfono válido.</div>            <!--Ejemplos válidos según esta expresión regular:
-                                                                                                                    +34 600 123 456  /  +34-600-123-456  /  600 123 456-->                                                                                                                                   
-                <small>Ej: +34 600 123 456</small>                                                                                                                        
-                  
-                
+                <label for="telefono">Teléfono/móvil</label> <!--pattern="/^(?:\+34)*\d{9}$/g"-->
+                <input type="text" id="telefono" name="telefono" placeholder="ej.+34 600 000 000"
+                    pattern="^\+?[0-9\s\-]+$" required>
+                <!--para permitir el código de país opcional y varios separadores (como guiones y espacios).-->
+                <div class="error-message" id="tfnoError">Ingresa un número de teléfono válido.</div>
+                <!--Ejemplos válidos según esta expresión regular:
+                                                                                                                    +34 600 123 456  /  +34-600-123-456  /  600 123 456-->
+                <small>Ej: +34 600 123 456</small>
+
+
             </div>
 
             <div class="form-group">
@@ -171,11 +176,11 @@
             let isValid = true;
 
             // Validar Nombre
-            if (nombreInput.value.trim() === '') {
-                nombreError.style.display = 'block';
-                isValid = false;
+            if (nombreInput.value.trim() === '') {  // Verifica si el campo de entrada está vacío (ignorando espacios al inicio y al final)
+                nombreError.style.display = 'block';    //// Muestra el mensaje de error si el campo está vacío
+                isValid = false;    // Establece la variable `isValid` en falso, indicando que la entrada no es válida
             } else {
-                nombreError.style.display = 'none';
+                nombreError.style.display = 'none';   // Oculta el mensaje de error si el campo no está vacío
             }
 
             // Validar Email
@@ -195,16 +200,30 @@
             }
 
             // Validar teléfono
-            const tfnoValido = tfnoInput.checkValidity();
+            // const tfnoValido = tfnoInput.checkValidity();  // Verifica si el teléfono cumple con las reglas de validación del formulario.
 
-            if (!tfnoValido) {
+            // if (!tfnoValido) {
+            //     document.getElementById('tfnoError').style.display = 'block';
+            //     isValid = false;
+            // } else {
+            //     document.getElementById('tfnoError').style.display = 'none';
+            // }
+
+            /////////////////////////
+            const tfnoInputValue = tfnoInput.value.trim();
+            const tfnoSaritizado = /^\+?[0-9]{10,15}$/;  // Expresión regular para un número de teléfono (opcionalmente con un +)
+
+            if (!tfnoSaritizado.test(tfnoInputValue)) {
                 document.getElementById('tfnoError').style.display = 'block';
+                document.getElementById('tfnoError').style.padding = '1em';
                 isValid = false;
             } else {
                 document.getElementById('tfnoError').style.display = 'none';
             }
-        
-            
+
+
+            ////////////////////////
+
             if (isValid) {
 
                 // Si todo es válido, guardar los datos en localStorage
@@ -225,7 +244,7 @@
                 form.reset();
             }
         });
-    
+
     </script>
 </body>
 
