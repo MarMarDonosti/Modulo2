@@ -6,30 +6,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recetas</title>
     <style>
+        @font-face {
+            font-family: 'Ananda';
+            src: url('Ananda\ Personal\ Use.ttf') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body {
             font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+        }
+
+        header {
+            text-align: center;
+            background-color: rgb(239, 210, 143);
+            margin: 0;
+            display:flex;
+            justify-content:flex-start;
+            gap: 5em;
+            padding: 1em;
+            padding-left: 5em;
+        }
+
+        .logo {
+            width: 8em;
+            border-radius: 100px;
+        }
+
+        main {
+            /*display: grid;
+            grid-template-columns: 1fr auto;
+            grid-template-areas:
+                ""*/
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             background-color: rgb(215, 123, 31);
             margin: 0;
-            padding: 20px;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: center;
+            gap: 5em; /* Espacio entre imagen y formulario */
+            margin-bottom: 2em;
+            flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+        }
+
+        .cuchillo {
+            width: 25em;
+            border: solid white 0.5em;
+            box-shadow: 0px 9px 8px rgba(0, 0, 0, 0.5);
+            align-self:center;
+            justify-self: flex-start;
+            margin-top: 3em;
         }
 
         h1 {
             text-align: center;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-family: "Ananda";
+            font-size: 3.5em;
         }
 
         h2 {
             text-align: center;
             color: black;
-            margin-top: 60px;
+            margin-top: 20px;
+            /*text-shadow: 2px 6px 4px rgba(0, 0, 0, 1);*/
         }
 
         form {
             background-color: #fff;
             padding: 20px;
             border-radius: 10px;
-            max-width: 600px;
-            margin: auto;
+            max-width: 430px;
+            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -40,11 +93,7 @@
         label {
             font-size: 16px;
             margin-bottom: 10px;
-            display: block;
-        }
-
-        .formato {
-            margin-bottom: 2em;
+            /*display: block;*/
         }
 
         input[type="text"],
@@ -63,9 +112,10 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            margin-top: 30px;
+            /*margin-top: 30px;*/
             width: 200px;
-            display: inline;
+            margin: auto;
+            /*display: inline;*/
 
         }
 
@@ -74,12 +124,18 @@
             color: white;
         }
 
+        #recetasContainer {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
         .receta {
             background-color: #fff;
             padding: 15px;
             margin: 10px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 14px 5px 8px rgba(0, 0, 0, 0.3);
         }
 
         .btn-borrar {
@@ -94,33 +150,60 @@
         .btn-borrar:hover {
             background-color: darkred;
         }
+
+        footer {
+            background-color: rgb(215, 123, 31);
+            margin: 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cuchillo {
+                width: 15em;
+            }
+        }
     </style>
 </head>
 
 <body>
     <header>
+        <img class="logo" src="logo_cocina.jfif">
         <h1>La venganza de la abuela</h1>
         <!--Aquí va el buscador-->
     </header>
     <main>
-        <div class="form-container">
-            <h2>Cuéntanos tu receta:</h2>
-            <form id="formRecetas">
-                <input type="text" id="nombreReceta" name="nombreReceta" placeholder="Nombre de la receta" required>
-                <div id="error-message" class="error"></div>
-                <br><br>
-                <textarea id="ingredientes" name="ingredientes" placeholder="Ingredientes" rows="5"
-                    cols="50"></textarea>
-                <br><br>
-                <textarea id="pasos" name="pasos" placeholder="Pasos de preparación" rows="5" cols="50"></textarea>
-                <br><br>
-                <input type="submit" id="btnEnviar" value="Guardar receta">
-            </form>
+        <div class="main-content">
+            <figure>
+                <img class="cuchillo" src="cuchillo.webp"
+                    alt="Imagen de un cuchillo clavado en un tabla de picar verdura">
+            </figure>
+            <div class="form-container">
+                <h2>Cuéntanos tu receta:</h2>
+                <form id="formRecetas">
+                    <input type="text" id="nombreReceta" aria-label="Nombre de la receta" name="nombreReceta"
+                        placeholder="Nombre de la receta" required>
+                    <div id="error-message" class="error"></div>
+
+                    <textarea id="ingredientes" aria-label="Ingredientes de la receta" name="ingredientes"
+                        placeholder="Ingredientes" rows="5" cols="50"></textarea>
+
+                    <textarea id="pasos" aria-label="Pasos de preparación" name="pasos"
+                        placeholder="Pasos de preparación" rows="10" cols="50"></textarea>
+
+                    <input type="submit" id="btnEnviar" value="Guardar receta">
+                </form>
+            </div>
         </div>
         <h3>Recetas Guardadas</h3>
         <div id="recetasContainer"></div>
     </main>
     <footer>
+        <p>Esta página se ha realizado en memoria de Gorka y la amoña Ángeles.</p>
     </footer>
     <script>
         const nombreRecetaInput = document.getElementById('nombreReceta');
@@ -143,7 +226,7 @@
 
             if (recetaExistente) {
                 divErrorMensaje.innerHTML = 'Ya hay una receta con ese nombre. Prueba con otro o cámbialo un poco.';
-                divErrorMensaje.style.padding = '1em'
+                //divErrorMensaje.style.padding = '1em'
                 divErrorMensaje.style.display = 'block'; // Mostrar el mensaje de error
                 return;
             }
