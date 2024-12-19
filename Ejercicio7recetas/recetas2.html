@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetas</title>
+    <link rel="stylesheet" href="recetas.css">
+</head>
+
+<body>
+    <header>
+        <div class="encabezado">
+            <figure> <!--Si no le pongo un contenedor a la imagen, la imagen se estira hasta el límite de altura-->
+                <img class="logo" src="logo_cocina.jfif">
+            </figure>
+            <h1>La venganza de la abuela</h1>
+            <!--Aquí va el buscador-->
+        </div>
+        <nav class="linea-encima">
+            <ul class="nav-list nav-linea-encima">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="recetas.html">Recetas</a></li>
+                <li><a href="comunidad.html">Comunidad</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="main-encabezado">
+            <h2>· Comunidad de cocinillas ·</h2>
+            <p>Aquí puedes guardar tus recetas. ¡Las mejores serán compartidas en nuestro recetario!</p>
+            <div class="search-container">
+                <input type="text" placeholder="Buscar..." class="searchInput" id="searchInput">
+                <button class="search-button">
+                    <img src="lupa-negra.svg" alt="Buscar" class="search-icon">
+                </button>
+            </div>
+        </div>
+        <div class="main-content">
+            <figure>
+                <img class="cuchillo" src="cuchillo.webp"
+                    alt="Imagen de un cuchillo clavado en un tabla de picar verdura">
+            </figure>
+            <div class="form-container">
+                <h3>Cuéntanos tu receta:</h3>
+                <form id="formRecetas">
+                    <input type="text" id="nombreReceta" aria-label="Nombre de la receta" name="nombreReceta"
+                        placeholder="Nombre de la receta" required>
+                    <div id="error-message" class="error"></div>
+
+                    <textarea id="ingredientes" aria-label="Ingredientes de la receta" name="ingredientes"
+                        placeholder="Ingredientes" rows="5" cols="50"></textarea>
+
+                    <textarea id="pasos" aria-label="Pasos de preparación" name="pasos"
+                        placeholder="Pasos de preparación" rows="10" cols="50"></textarea>
+
+                    <input type="submit" id="btnEnviar" value="Guardar receta">
+                </form>
+            </div>
+        </div>
+        <h3>Tus recetas guardadas</h3>
+        <div id="recetasContainer"></div>
+    </main>
+    <footer>
+        <p>Esta página está dedicada a la memoria de Gorka y la amoña Ángeles.</p>
+    </footer>
+    <script src="recetas.js"></script>
+</body>
+
+</html>
