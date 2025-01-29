@@ -1,0 +1,278 @@
+        @font-face {
+            font-family: 'Ananda';
+            src: url('Ananda\ Personal\ Use.ttf') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+        }
+
+        header {
+            text-align: center;
+            background-color: rgb(239, 210, 143);
+            margin: 0;
+            padding: 0;
+        }
+
+        .encabezado {
+            display: flex;
+            justify-content: flex-start;
+            gap: 5em;
+        }
+
+        .logo {
+            width: 10em;
+            height: auto;
+            border-radius: 100px;
+            object-fit: cover;
+        }
+
+        /* NAVEGADOR*/
+
+        nav {
+            background-color: white;
+            margin: 0;
+            padding: 0.5em;
+        }
+
+        .nav-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            /* Centra los elementos */
+        }
+
+        .nav-list li {
+            margin: 0 15px;
+            /* Espaciado entre elementos */
+        }
+
+        .linea-encima a {
+            text-decoration: none;
+            color: #333;
+            /* Color del texto */
+            font-weight: bold;
+            padding: 10px 15px;
+            position: relative;
+            /* Necesario para la línea sobre el texto */
+            transition: color 0.3s;
+            /* Transiciones suaves */
+        }
+
+        .linea-encima a::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            /* Grosor de la línea */
+            background-color: #ff7300;
+            /* Color de la línea */
+            left: 0;
+            bottom: 100%;
+            /* Posición de la línea sobre el texto */
+            transform: scaleX(0);
+            transition: transform 0.3s;
+            /* Transición suave para la línea */
+        }
+
+        .linea-encima a:hover {
+            color: #ff7300;
+            /* Color del texto al pasar el mouse */
+        }
+
+        .linea-encima a:hover::before {
+            transform: scaleX(1);
+            /* Muestra la línea al pasar el mouse */
+        }
+
+        /**/
+
+        main {
+            /*display: grid;
+            grid-template-columns: 1fr auto;
+            grid-template-areas:
+                ""*/
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(215, 123, 31);
+            margin: 0;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: center;
+            gap: 5em;
+            /* Espacio entre imagen y formulario */
+            margin-bottom: 2em;
+            flex-wrap: wrap;
+            /* Permite que los elementos se ajusten en pantallas pequeñas */
+        }
+
+        .cuchillo {
+            width: 25em;
+            border: solid white 0.5em;
+            box-shadow: 0px 9px 8px rgba(0, 0, 0, 0.5);
+            align-self: center;
+            justify-self: flex-start;
+            margin-top: 3em;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: "Ananda";
+            font-size: 4em;
+        }
+
+        .main-encabezado {
+            display: block;
+        }
+
+        /*BUSCADOR*/
+
+        .search-container {
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            margin: 20px;
+            margin-bottom: 40px;
+        }
+
+        .searchInput {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .search-button {
+            background: none;
+            /* Elimina el fondo del botón */
+            border: none;
+            /* Elimina el borde del botón */
+            cursor: pointer;
+            /* Cambia el cursor al pasar sobre el botón */
+        }
+
+        .search-icon {
+            width: 24px;
+            /* Ajusta el tamaño del ícono */
+            height: 24px;
+        }
+
+        h2 {
+            text-align: center;
+            color: black;
+            font-size: 2.4em;
+            padding: 1.5em;
+            /*background-color: rgba(255, 255, 255, 0.5); /* Fondo blanco con 80% de opacidad */
+            /*text-shadow: 2px 6px 4px rgba(0, 0, 0, 1);*/
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 430px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+
+        }
+
+        label {
+            font-size: 16px;
+            margin-bottom: 10px;
+            /*display: block;*/
+        }
+
+        input[type="text"],
+        textarea {
+            width: 96%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        input[type="submit"] {
+            background-color: #41c7d3;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            /*margin-top: 30px;*/
+            width: 200px;
+            margin: auto;
+            /*display: inline;*/
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilo cuando el botón está presionado */
+        input[type="submit"]:active {
+            box-shadow: none;
+            /* Eliminar la sombra cuando se hace clic */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2b8276;
+            color: white;
+        }
+
+        #recetasContainer {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .receta {
+            background-color: #fff;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 14px 5px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-borrar {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .btn-borrar:hover {
+            background-color: darkred;
+        }
+
+        .error {
+            color: red;
+            margin-bottom: 1em;
+        }
+
+        footer {
+            background-color: rgb(215, 123, 31);
+            margin: 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cuchillo {
+                width: 15em;
+            }
+        }
